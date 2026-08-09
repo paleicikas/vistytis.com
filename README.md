@@ -1,71 +1,73 @@
 # Vištytis
 
-Interaktyvus Vištyčio regioninio parko lankytinų vietų žemėlapis.
+Interactive map of attractions in Vištytis Regional Park.
 
-## Svetainė
+## Website
 
-Web svetainė naudoja tą pačią Expo / React Native aplikaciją kaip mobilusis
-variantas. Sena atskira statinio `index.html` žemėlapio logika pašalinta.
+The website uses the same Expo / React Native application as the mobile
+version. The old standalone `index.html` map logic has been removed.
 
-Vienai komandai paleisti:
+Build the web application:
 
 ```bash
 npm run build:web
 ```
 
-Komanda sinchronizuoja bendrus duomenis, sugeneruoja Expo web aplikaciją į
-`app/dist`, prideda `CNAME` domenui ir sukuria `404.html` GitHub Pages
-maršrutams.
+This command synchronizes shared data, generates the Expo web application in
+`app/dist`, adds the domain `CNAME`, and creates `404.html` for GitHub Pages
+routes.
 
-Lokali peržiūra:
+Preview it locally:
 
 ```bash
 npm run serve:web
 ```
 
-GitHub Pages publikavimą atlieka `.github/workflows/deploy-web.yml`.
-GitHub nustatymuose pasirinkite **Settings → Pages → Source: GitHub Actions**.
-Po `push` į `main` aplikacija bus sugeneruota ir publikuota automatiškai.
+GitHub Pages deployment is handled by `.github/workflows/deploy-web.yml`.
+In the GitHub settings, select **Settings → Pages → Source: GitHub Actions**.
+After a `push` to `main`, the application is generated and deployed
+automatically.
 
-## Badge ikonos
+## Badge Icons
 
-Vietų iliustracijos saugomos `assets/badges/raw/`, o optimizuotos apvalios ikonos –
-`assets/badges/out/`.
+Place illustrations are stored in `assets/badges/raw/`, while optimized round
+icons are stored in `assets/badges/out/`.
 
 ```bash
-# Sugeneruoti promptus visoms vietoms, įskaitant paslaugų vietas
+# Generate prompts for all places, including service locations
 npm run badge-prompts -- --all
 
-# Sugeneruoti 512/256/128 PNG ikonas visoms vietoms
+# Generate 512/256/128 PNG icons for all places
 npm run build-badges -- --all
 ```
 
-`collectible` reikšmė ir toliau valdo tik žaidimo rinkimo logiką. `--all` papildomai
-paruošia ikonas necollectible vietoms, kad jas būtų galima naudoti vietos kortelėje
-arba aprašyme.
+The `collectible` value continues to control only the game's collection logic.
+`--all` additionally prepares icons for non-collectible places so they can be
+used in a place card or description.
 
-## GitHub Pages struktūra
+## GitHub Pages Structure
 
-- `app/` – Expo / React Native aplikacijos kodas.
-- `app/dist/` – sugeneruotas web publikavimo katalogas, į repozitoriją neįtraukiamas.
-- `CNAME` – pasirinktinio domeno konfigūracija, automatiškai nukopijuojama į build'ą.
-- `.github/workflows/deploy-web.yml` – automatinis GitHub Pages build ir deploy.
+- `app/` – Expo / React Native application source code.
+- `app/dist/` – generated web deployment directory, excluded from the repository.
+- `CNAME` – custom domain configuration, copied to the build automatically.
+- `.github/workflows/deploy-web.yml` – automated GitHub Pages build and deployment.
 
-## Mobilioji aplikacija
+## Mobile Application
 
-`app/` yra atskiras Expo / React Native projektas:
+`app/` is a standalone Expo / React Native project:
 
-- `app/App.tsx` – aplikacijos įėjimo medis ir būsenos tiekėjas.
-- `app/src/navigation/RootNavigator.tsx` – pagrindinis stack ir deep-link maršrutai.
-- `app/src/navigation/MainTabs.tsx` – vietų ir kolekcijos skirtukai.
-- `app/src/screens/PlacesScreen.tsx` – žemėlapis, paieška, filtrai ir vietos nustatymas.
-- `app/src/screens/PlaceDetailsScreen.tsx` – vietos informacija, navigacija ir ženklelio rinkimas.
-- `app/src/screens/CollectionScreen.tsx` – kolekcija, taškai, lygiai ir rinkiniai.
-- `app/src/game.ts` – atstumo, GPS tikslumo, retumo ir rinkinių taisyklės.
-- `app/src/AppState.tsx` – lokacijos, kalbos ir AsyncStorage būsenos valdymas.
-- `app/scripts/sync-data.mjs` – bendrų `data/` failų sinchronizavimas į Metro pasiekiamus asset'us.
+- `app/App.tsx` – application entry tree and state provider.
+- `app/src/navigation/RootNavigator.tsx` – main stack and deep-link routes.
+- `app/src/navigation/MainTabs.tsx` – places and collection tabs.
+- `app/src/screens/PlacesScreen.tsx` – map, search, filters, and location tracking.
+- `app/src/screens/PlaceDetailsScreen.tsx` – place information, navigation, and badge collection.
+- `app/src/screens/CollectionScreen.tsx` – collection, points, levels, and sets.
+- `app/src/game.ts` – distance, GPS accuracy, rarity, and collection rules.
+- `app/src/AppState.tsx` – location, language, and AsyncStorage state management.
+- `app/scripts/sync-data.mjs` – synchronizes shared `data/` files to assets
+  accessible to Metro.
 
-Paleidimas:
+Start the application:
 
 ```bash
 cd app
@@ -73,7 +75,8 @@ npm install
 npm start
 ```
 
-`npm install` automatiškai paleidžia `sync-data`, todėl mobilioji aplikacija naudoja tuos pačius vietų, taisyklių ir vertimų failus kaip svetainė.
+`npm install` automatically runs `sync-data`, so the mobile application uses
+the same place, rules, and translation files as the website.
 
 ## APK
 
@@ -82,13 +85,14 @@ cd app
 npx eas-cli build --platform android --profile preview
 ```
 
-`preview` profilis sugeneruoja testinį APK. Prieš build'ą reikalinga Expo paskyra ir `eas login`.
+The `preview` profile generates a testing APK. An Expo account and `eas login`
+are required before building.
 
-Android žemėlapiui standalone APK reikia Google Maps API rakto. Prieš lokalią
-komandą nustatykite `GOOGLE_MAPS_API_KEY` aplinkos kintamąjį, o EAS build'e
-įtraukite tą patį kintamąjį į projekto aplinką:
+Android maps in a standalone APK require a Google Maps API key. Before running
+the command locally, set the `GOOGLE_MAPS_API_KEY` environment variable. For an
+EAS build, add the same variable to the project environment:
 
 ```powershell
-$env:GOOGLE_MAPS_API_KEY = "jusu-google-maps-api-raktas"
+$env:GOOGLE_MAPS_API_KEY = "your-google-maps-api-key"
 npx eas-cli build --platform android --profile preview
 ```
