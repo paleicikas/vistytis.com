@@ -1,0 +1,744 @@
+[
+  {
+    "name": "Aukščiausia Vištyčio eglė",
+    "categories": [
+      "Gamta"
+    ],
+    "topics": [
+      "Botaniniai objektai"
+    ],
+    "description": "Gamtos vieta. Vietovė: Čižiškiai · Vilkaviškio r.",
+    "text": "Botaninės vertės vieta Čižiškių apylinkėse, Vištyčio regioninio parko gamtiniame kraštovaizdyje. Objektas įtrauktas į žemėlapį kaip atskiras gamtos pažinimo taškas; lankantis svarbu nepažeisti augavietės.",
+    "address": null,
+    "city": "Čižiškiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.76323698,
+      54.401094558
+    ]
+  },
+  {
+    "name": "Buvusios Vištyčio cerkvės vieta",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Istorinės vietos",
+      "Cerkvės"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Vištytis buvo daugiatautis pasienio miestelis, kuriame veikė kelių religinių bendruomenių maldos namai. Cerkvė pastatyta 1912 m., o 1944 m. sudegė; šiandien jos vietą primena paminklinis akmuo.",
+    "address": "S. Dariaus ir S. Girėno g.",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.703997897,
+      54.45363088
+    ]
+  },
+  {
+    "name": "Buvusios Vištyčio sinagogos vieta",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Istorinės vietos",
+      "Sinagogos"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Šis taškas primena Vištytyje gyvenusią žydų bendruomenę ir jos maldos namus. Mūrinė sinagoga buvo statoma XIX a. viduryje; iki mūsų dienų išlikę tik fragmentai ir vietą žymintis paminklinis akmuo.",
+    "address": "Sodų g.",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.708032772,
+      54.457128405
+    ]
+  },
+  {
+    "name": "Dabravolės piliakalnis",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Piliakalniai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Dabravolė · Vilkaviškio r.",
+    "text": "Dabravolės piliakalnis datuojamas laikotarpiu nuo I tūkstantmečio vidurio iki II tūkstantmečio pradžios. Jo rytinis šlaitas siekia apie 25 m, viršuje yra ovali aikštelė, o papėdėje aptikta senos gyvenvietės ir keramikos pėdsakų.",
+    "address": "Jevonio g.",
+    "city": "Dabravolė",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.783567227,
+      54.479636843
+    ]
+  },
+  {
+    "name": "Dabrovolės daugiakamienė liepa",
+    "categories": [
+      "Gamta"
+    ],
+    "topics": [
+      "Botaniniai objektai"
+    ],
+    "description": "Gamtos vieta. Vietovė: Dabravolė · Vilkaviškio r.",
+    "text": "Dabravolės daugiakamienė liepa auga prie piliakalnio papėdės ir tapo atskira vietos kraštovaizdžio žyme. Iš vieno kamieno pagrindo išsišakoja daugybė kamienų, todėl medis gerai papildo piliakalnio lankymo istoriją.",
+    "address": "Jevonio g.",
+    "city": "Dabravolė",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.784072262,
+      54.479205824
+    ]
+  },
+  {
+    "name": "Didysis Vištyčio akmuo",
+    "categories": [
+      "Gamta"
+    ],
+    "topics": [
+      "Akmenys"
+    ],
+    "description": "Gamtos vieta. Vietovė: Nebūtkiemis · Vilkaviškio r.",
+    "text": "Didysis Vištyčio akmuo - ledyninės kilmės riedulys, kurio virš žemės esanti dalis siekia maždaug 7 m ilgio, 5 m pločio ir 4 m aukščio. XVIII a. bažnyčios dokumentuose jis vadinamas Švenčiausiosios Trejybės akmeniu, o įduba viršuje paskatino pasakojimus apie Velnio pėdą ir ašaras.",
+    "address": null,
+    "city": "Nebūtkiemis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.705116816,
+      54.470287787
+    ]
+  },
+  {
+    "name": "Kempingas Pušelė",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Kempingai",
+      "Poilsio nameliai",
+      "Privačios stovyklavietės"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Žirgėnai · Vilkaviškio r.",
+    "text": "Poilsio vieta Žirgėnų apylinkėse, žemėlapyje priskirta kempingų, poilsio namelių ir privačių stovyklaviečių temoms. Prieš planuojant nakvynę verta iš anksto pasitikrinti sezono laiką, paslaugas ir rezervavimo tvarką.",
+    "address": null,
+    "city": "Žirgėnai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.74979519,
+      54.427757895
+    ]
+  },
+  {
+    "name": "Kempingas-poilsiavietė Viktorija",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Kempingai",
+      "Privačios stovyklavietės"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Čižiškai · Vilkaviškio r.",
+    "text": "Poilsio ir stovyklavimo vieta Čižiškių apylinkėse. Tai privatus lankymo objektas, todėl aktualią informaciją apie vietą, paslaugas ir apsistojimo galimybes reikėtų pasitikrinti prieš atvykstant.",
+    "address": null,
+    "city": "Čižiškai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.760784402,
+      54.409505396
+    ]
+  },
+  {
+    "name": "Liubiškių akmuo",
+    "categories": [
+      "Gamta"
+    ],
+    "topics": [
+      "Akmenys"
+    ],
+    "description": "Gamtos vieta. Vietovė: Liubiškiai · Vilkaviškio r.",
+    "text": "Liubiškių apylinkėse pažymėtas gamtos objektas, papildantis Vištyčio krašto akmeningą kraštovaizdį. Vietos aprašyme sąmoningai nepateikiamos nepatikrintos legendos - čia svarbiausia pats riedulys ir jo aplinka.",
+    "address": null,
+    "city": "Liubiškiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.817932,
+      54.481327
+    ]
+  },
+  {
+    "name": "Liubiškių dvaras",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Dvarai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Liubiškiai · Vilkaviškio r.",
+    "text": "Liubiškių apylinkėse pažymėta dvaro vieta, priskiriama kultūros paveldo temai. Tai vienas iš mažesnių krašto istorijos ženklų, kurį verta vertinti kartu su aplinkiniu kaimų ir senųjų sodybų kraštovaizdžiu.",
+    "address": null,
+    "city": "Liubiškiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.810563672,
+      54.483023698
+    ]
+  },
+  {
+    "name": "Medinių skulptūrų alėja",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Skulptūros"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Vištyčio miestelio viešojoje erdvėje esanti medinių skulptūrų alėja sujungia pasivaikščiojimą ir vietos pasakojimus. Skulptūros papildo paežerės maršrutą ir leidžia miestelio istoriją pažinti ne tik per pastatus, bet ir per lauko meną.",
+    "address": "S. Dariaus ir S. Girėno g.",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.708925126,
+      54.454766555
+    ]
+  },
+  {
+    "name": "Muziejus Metalo fantazija",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Meno muziejai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Žirgėnai · Vilkaviškio r.",
+    "text": "Žirgėnų apylinkėse veikianti ekspozicinė vieta, skirta metalo kūriniams ir meninei metalo interpretacijai. Lankymo sąlygos gali keistis, todėl prieš vykstant verta pasitikslinti priėmimo laiką.",
+    "address": null,
+    "city": "Žirgėnai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.750535448,
+      54.427908335
+    ]
+  },
+  {
+    "name": "Paminklas Vištyčiui",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Paminklai",
+      "Skulptūros"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Vištyčio miestelio viešojoje erdvėje esantis paminklas siejamas su vietos tapatybe ir krašto legendomis. Pėsčiųjų maršrute jis lankomas kartu su istorine aikšte, bažnyčiomis ir kitais miestelio ženklais.",
+    "address": "Mokyklos g.",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.71085647,
+      54.458326199
+    ]
+  },
+  {
+    "name": "Paminklas Vytautui Didžiajam (Vištytis)",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Paminklai",
+      "Miesto parkai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Paminklas stovi Vištyčio istorinės aikštės aplinkoje. Kartu su susiformavusiu gatvių tinklu, želdiniais ir bažnyčių ansambliu jis priklauso miestelio urbanistiniam pasakojimui.",
+    "address": "Vytauto g.",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.710567966,
+      54.454505374
+    ]
+  },
+  {
+    "name": "Pavištyčio I piliakalnis",
+    "categories": [
+      "Kultūros paveldas",
+      "Apžvalgos vietos"
+    ],
+    "topics": [
+      "Piliakalniai",
+      "Apžvalgos vietos"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Pavištytis · Vilkaviškio r.",
+    "text": "Pavištyčio piliakalnis datuojamas I tūkstantmečiu ir yra maždaug už kilometro nuo Pavištyčio kaimo. Viršuje išlikusi apie 80 × 30 m ovalinė aikštelė, o nuo šlaitų atsiveria Vištyčio ir Grabausko ežerėlio vaizdai.",
+    "address": null,
+    "city": "Pavištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.78080033,
+      54.414958306
+    ]
+  },
+  {
+    "name": "Pavištyčio II piliakalnis",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Piliakalniai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Pavarteliai · Vilkaviškio r.",
+    "text": "Antrasis Pavištyčio piliakalnis datuojamas I tūkstantmečiu-II tūkstantmečio pradžia ir nuo pirmojo piliakalnio nutolęs apie kilometrą. Jis išaiškintas 2005 m.; viršuje yra apie 28 × 19 m aikštelė, o papėdėje rasta senos gyvenvietės pėdsakų.",
+    "address": null,
+    "city": "Pavarteliai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.783777916,
+      54.404980664
+    ]
+  },
+  {
+    "name": "Poilsis Vištytyje",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Kaimo turizmo sodybos",
+      "Poilsio nameliai"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Apgyvendinimo vieta Vištyčio apylinkėse, tinkama kelionę po regioninį parką pratęsti kelioms dienoms. Paslaugų, kainų ir užimtumo informacija yra sezoninė, todėl ją reikėtų pasitikrinti prieš užsakant viešnagę.",
+    "address": "Ežero g. 19",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.714136683,
+      54.453061523
+    ]
+  },
+  {
+    "name": "Raganos šluota",
+    "categories": [
+      "Gamta"
+    ],
+    "topics": [
+      "Botaniniai objektai"
+    ],
+    "description": "Gamtos vieta. Vietovė: Čižiškiai · Vilkaviškio r.",
+    "text": "Šilelio pažintiniame take matomas savitas medžių darinys, lankytojų vadinamas Raganos šluota. Tai vienas iš gamtinių akcentų, dėl kurių takas įdomus ne tik dėl ežero pakrantės, bet ir dėl įvairių medžių formų.",
+    "address": null,
+    "city": "Čižiškiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.760006058,
+      54.405572493
+    ]
+  },
+  {
+    "name": "Regykla Trys ežerai",
+    "categories": [
+      "Apžvalgos vietos"
+    ],
+    "topics": [
+      "Apžvalgos vietos"
+    ],
+    "description": "Apžvalgos vieta. Vietovė: Pavištytis.",
+    "text": "Pavištyčio apylinkėse įrengta apžvalgos vieta, iš kurios atsiveria kalvoto kraštovaizdžio ir ežerų panorama. Tai patogi stotelė keliaujant po piliakalnių ir Vištyčio ežero apylinkes.",
+    "address": "Klevų g.",
+    "city": "Pavištytis",
+    "municipality": null,
+    "coordinates": [
+      22.786293108,
+      54.407998919
+    ]
+  },
+  {
+    "name": "Regykla Vaizdas į Romintos girią",
+    "categories": [
+      "Apžvalgos vietos"
+    ],
+    "topics": [
+      "Apžvalgos vietos"
+    ],
+    "description": "Apžvalgos vieta. Vietovė: Pakalniai · Vilkaviškio r.",
+    "text": "Šilelio pažintinio tako apžvalgos taškas, nukreiptas į už Vištyčio ežero plytinčią Romintos girią. Regykla geriausiai atsiskleidžia keliaujant ilgesniąja tako trasa ir stebint, kaip kalvotas reljefas pereina į miškų masyvą.",
+    "address": "Poilsiautojų g.",
+    "city": "Pakalniai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.77239291,
+      54.396639743
+    ]
+  },
+  {
+    "name": "Sodyba Asterhouse",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Svečių namai",
+      "Kaimo turizmo sodybos"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Apgyvendinimo vieta Vištyčio miestelio apylinkėse. Ji gali būti patogi kaip bazė kelionėms prie ežero, į piliakalnius ir pažintinius takus; prieš atvykstant verta pasitikrinti užsakymo sąlygas.",
+    "address": "A. Juozapavičiaus g. 27",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.718669699,
+      54.456748482
+    ]
+  },
+  {
+    "name": "Stručio namas",
+    "categories": [
+      "Lankytojų paslaugos"
+    ],
+    "topics": [
+      "Ekspozicijos"
+    ],
+    "description": "Lankytojams skirta vieta. Vietovė: Žirgėnai · Vilkaviškio r.",
+    "text": "Žirgėnų apylinkėse pažymėta ekspozicinė vieta. Objektas įtrauktas į žemėlapį kaip lankytinas sustojimas, tačiau apsilankymo laiką ir ekspozicijos prieinamumą rekomenduojama suderinti iš anksto.",
+    "address": null,
+    "city": "Žirgėnai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.75000846,
+      54.427969337
+    ]
+  },
+  {
+    "name": "Suopkalnis",
+    "categories": [
+      "Apžvalgos vietos"
+    ],
+    "topics": [
+      "Apžvalgos vietos"
+    ],
+    "description": "Apžvalgos vieta. Vietovė: Šakiai · Vilkaviškio r.",
+    "text": "Suopkalnis yra viena iš Kylininkų kraštovaizdžio draustinio kalvų. Nuo jos atsiveria plačios Pajevonio apylinkių panoramos; giedrą dieną matomos ir tolimesnės Vilkaviškio krašto vietovės. Kalva žymi perėjimą nuo Sūduvos aukštumų į banguotą ir lygesnį Suvalkijos reljefą.",
+    "address": null,
+    "city": "Šakiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.779725974,
+      54.538479079
+    ]
+  },
+  {
+    "name": "SUP Savitarna (Vištytis)",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Irklenčių nuoma"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Prie Vištyčio pažymėta savitarnos irklenčių nuomos vieta. Tai sezoninė paslauga prie ežero, todėl prieš planuojant plaukimą būtina patikrinti veikimo laiką, įrangos prieinamumą ir saugaus elgesio vandenyje taisykles.",
+    "address": "Pakrantės g.",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.735387,
+      54.451841
+    ]
+  },
+  {
+    "name": "Vila Vištytyje",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Poilsio nameliai"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Apgyvendinimo vieta Vištytyje, tinkama kelionei prie ežero ir aplinkinio regioninio parko objektų. Užimtumas, kainos ir priėmimo sąlygos gali keistis, todėl informaciją verta pasitikrinti prieš kelionę.",
+    "address": "S. Dariaus ir S. Girėno g. 3",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.708034848,
+      54.454230579
+    ]
+  },
+  {
+    "name": "Vištyčio apžvalgos vieta",
+    "categories": [
+      "Apžvalgos vietos"
+    ],
+    "topics": [
+      "Apžvalgos vietos"
+    ],
+    "description": "Apžvalgos vieta. Vietovė: Vištyčio Laukas I · Vilkaviškio r.",
+    "text": "Vištyčio Lauko apylinkėse pažymėtas kraštovaizdžio apžvalgos taškas. Tokiose parko vietose labiausiai atsiskleidžia kalvotas reljefas, ežero aplinka ir pasienio kraštovaizdžio mastelis.",
+    "address": "Kalvarijos g.",
+    "city": "Vištyčio Laukas I",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.741576037,
+      54.45692416
+    ]
+  },
+  {
+    "name": "Vištyčio evangelikų liuteronų bažnyčia",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Liuteronų bažnyčios"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Bažnyčia baigta statyti 1844 m. ir liudija daugiatautę Vištyčio istoriją. Sovietmečiu pastatas buvo pritaikytas dirbtuvėms, o 1998 m. iš Vištyčio kilusių vokiečių pastangomis ir lėšomis atstatytas.",
+    "address": "Taikos g. 59",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.730655151,
+      54.454673878
+    ]
+  },
+  {
+    "name": "Vištyčio Holokausto aukų memorialas",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Memorialinės vietos",
+      "Paminklai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Memorialinė vieta skirta Vištyčio krašto Holokausto aukų atminimui. Tai ramaus susikaupimo ir istorinio atminimo taškas, kurį lankant svarbu elgtis pagarbiai.",
+    "address": "Taikos g. 62",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.740095458,
+      54.455015645
+    ]
+  },
+  {
+    "name": "Vištyčio Lauko II piliakalnis",
+    "categories": [
+      "Kultūros paveldas",
+      "Apžvalgos vietos"
+    ],
+    "topics": [
+      "Piliakalniai",
+      "Apžvalgos vietos"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištyčio Laukas II · Vilkaviškio r.",
+    "text": "Piliakalnis Vištyčio Lauko apylinkėse yra vienas iš regiono archeologinių kraštovaizdžio taškų. Jį verta lankyti kaip platesnio Vištyčio piliakalnių tinklo dalį; tikslesnių istorinių teiginių čia nepateikiame, jei jų nepatvirtina patikimas aprašas.",
+    "address": null,
+    "city": "Vištyčio Laukas II",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.77560037,
+      54.444671375
+    ]
+  },
+  {
+    "name": "Vištyčio piliakalnis",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Piliakalniai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištyčio Laukas II · Vilkaviškio r.",
+    "text": "Vištyčio piliakalnis datuojamas I-II tūkstantmečiu ir iškyla apie 20 m virš aplinkos. Stačiuose šlaituose ir aikštelėje rasta kultūrinio sluoksnio bei keramikos pėdsakų. Nuo viršaus matomi Vištyčio ežeras, miestelis ir Vištytgirio miškas.",
+    "address": "Miško g.",
+    "city": "Vištyčio Laukas II",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.786284118,
+      54.439564387
+    ]
+  },
+  {
+    "name": "Vištyčio poilsiavietė",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Viešos poilsiavietės"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Vieša poilsio vieta Vištyčio miestelio apylinkėse. Ji patogi trumpam sustojimui prie ežero, tačiau prieš atvykstant verta patikrinti vietos taisykles, infrastruktūrą ir sezono apribojimus.",
+    "address": "Taikos g.",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.720095158,
+      54.452008165
+    ]
+  },
+  {
+    "name": "Vištyčio regioninio parko lankytojų centras",
+    "categories": [
+      "Lankytojų paslaugos"
+    ],
+    "topics": [
+      "Parkų lankytojų centrai",
+      "Ekspozicijos",
+      "Ekskursijos, žygiai",
+      "Turizmo informacija"
+    ],
+    "description": "Lankytojams skirta vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Lankytojų centre pristatomas kalvotas Suvalkijos kraštovaizdis, parko gamtos įvairovė, rieduliai ir Vištyčio miestelio istorija. Ekspozicija pasakoja, iš kur kilo Vištyčio vardas, supažindina su vietos simboliais ir padeda susiplanuoti kelionę po parką.",
+    "address": "Vytauto g. 8",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.710343551,
+      54.45505367
+    ]
+  },
+  {
+    "name": "Vištyčio stovyklavietė",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Viešos poilsiavietės",
+      "Viešos stovyklavietės"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Vieša stovyklavimo vieta Vištyčio apylinkėse, skirta keliautojams, norintiems ilgiau pabūti prie ežero ir parke. Prieš apsistojant verta pasitikrinti, kokia infrastruktūra veikia konkrečiu sezonu.",
+    "address": null,
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.73564931,
+      54.451978629
+    ]
+  },
+  {
+    "name": "Vištyčio vėjo malūnas",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Vėjo malūnai"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Medinį vėjo malūną 1925 m. ant Ilgojo kalno pastatė vietos meistras Jonas Kanapkis. Vėjas sparnus suko apie tris dešimtmečius, vėliau malimo procesą pakeitė varikliai. XX a. pabaigoje čia veikė etnografinė ekspozicija, o šiandien malūnas saugomas kaip technikos paveldas.",
+    "address": "Taikos g. 62A",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.73945859,
+      54.454654937
+    ]
+  },
+  {
+    "name": "Vištyčio Švč. Trejybės bažnyčia",
+    "categories": [
+      "Kultūros paveldas"
+    ],
+    "topics": [
+      "Katalikų bažnyčios",
+      "Akmens mūro bažnyčios"
+    ],
+    "description": "Kultūros paveldo vieta. Vietovė: Vištytis · Vilkaviškio r.",
+    "text": "Dabartinė Vištyčio Švč. Trejybės bažnyčia statyta ir keista XIX a., 1829-1887 m. laikotarpiu. Mūrinis pastatas išsiskiria reta dvigubo kryžiaus plano kompozicija, klasicizmo bruožais ir bokštu. Joje išlikęs ir 1730 m. nulietas istorinis varpas.",
+    "address": "Mokyklos g. 1",
+    "city": "Vištytis",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.709786818,
+      54.456087127
+    ]
+  },
+  {
+    "name": "Įlankos poilsiavietė",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Viešos poilsiavietės"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Pakalniai · Vilkaviškio r.",
+    "text": "Vieša poilsio vieta prie Vištyčio ežero, Pakalnių apylinkėse. Tai sustojimas ramiai pakrantei ir ežero kraštovaizdžiui pažinti; lankymo patogumai priklauso nuo sezono ir vietos priežiūros.",
+    "address": "Poilsiautojų g.",
+    "city": "Pakalniai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.771037763,
+      54.39561373
+    ]
+  },
+  {
+    "name": "Šilelio atodanga",
+    "categories": [
+      "Apžvalgos vietos"
+    ],
+    "topics": [
+      "Apžvalgos vietos",
+      "Atodangos"
+    ],
+    "description": "Apžvalgos vieta. Vietovė: Čižiškiai · Vilkaviškio r.",
+    "text": "Šilelio miško kraštovaizdyje esanti atodanga yra viena iš pažintinio tako gamtinių stotelių. Šioje ežero pakrantės dalyje lėkštus šlaitus vietomis keičia staigesni reljefo pakilimai, todėl verta laikytis tako ir saugaus atstumo nuo skardžių.",
+    "address": null,
+    "city": "Čižiškiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.760304508,
+      54.406402286
+    ]
+  },
+  {
+    "name": "Šilelio mažasis pažintinis takas",
+    "categories": [
+      "Takai"
+    ],
+    "topics": [
+      "Pažintiniai takai"
+    ],
+    "description": "Pažintinis takas. Vietovė: Čižiškiai · Vilkaviškio r.",
+    "text": "Žiedinis Šilelio pažintinis takas veda per mišką ir Vištyčio ežero pakrantę. Oficialiai aprašomos trumpoji, apie 2,4 km, ir ilgoji, apie 3,4 km, trasos; pakeliui galima pamatyti Raganos šluotą, atodangą, Šventąjį šaltinį ir regyklą į Romintos girią.",
+    "address": null,
+    "city": "Čižiškiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.763725886,
+      54.407717104
+    ]
+  },
+  {
+    "name": "Šilelio stovyklavietė",
+    "categories": [
+      "Poilsis ir nakvynė"
+    ],
+    "topics": [
+      "Viešos poilsiavietės",
+      "Viešos stovyklavietės"
+    ],
+    "description": "Poilsio ir nakvynės vieta. Vietovė: Šilelio miškas · Vilkaviškio r.",
+    "text": "Stovyklavimo vieta Šilelio miško apylinkėse, netoli gamtos pažintinių objektų. Ji gali būti patogi keliaujantiems prie ežero ir pažintiniu taku, tačiau apsistojimo taisykles bei sezono sąlygas būtina pasitikrinti.",
+    "address": null,
+    "city": "Šilelio miškas",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.763677371,
+      54.400954241
+    ]
+  },
+  {
+    "name": "Šventas (Vištyčio) šaltinis",
+    "categories": [
+      "Gamta"
+    ],
+    "topics": [
+      "Šaltiniai",
+      "Sakralinės vietos"
+    ],
+    "description": "Gamtos vieta. Vietovė: Čižiškiai · Vilkaviškio r.",
+    "text": "Šventasis šaltinis trykšta Šilelio miške, ant kalvelės prie Vištyčio ežero. Šalia susiformavo mažas kryžių kalnelis, o vietos sakralumą sustiprino pasakojimai apie gydančią vandens galią. Tai yra vietos tradicija ir tikėjimas, o ne medicininė rekomendacija.",
+    "address": null,
+    "city": "Čižiškiai",
+    "municipality": "Vilkaviškio r.",
+    "coordinates": [
+      22.769892782,
+      54.399339784
+    ]
+  }
+]
