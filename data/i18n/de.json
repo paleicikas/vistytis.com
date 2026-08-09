@@ -1,0 +1,82 @@
+{
+  "app.title": "Wischtiten",
+  "app.tagline": "Sammle die Abzeichen der Region",
+
+  "common.loading": "Wird geladen…",
+  "common.close": "Schließen",
+  "common.search": "Ort, Dorf oder Thema suchen…",
+  "common.retry": "Erneut versuchen",
+  "common.error": "Die Daten konnten nicht geladen werden.",
+
+  "nav.places": "Orte",
+  "nav.collection": "Sammlung",
+  "nav.language": "Sprache",
+  "nav.locate": "Mein Standort",
+  "places.visible": "{count} Orte angezeigt",
+  "places.map": "Karte",
+  "places.list": "Liste",
+
+  "filters.all": "Alle",
+  "filters.services": "Dienstleistungen",
+
+  "category.heritage": "Kulturerbe",
+  "category.nature": "Natur",
+  "category.viewpoints": "Aussichtspunkte",
+  "category.trails": "Lehrpfade",
+  "category.accommodation": "Übernachtung und Erholung",
+  "category.services": "Besucherservice",
+
+  "rarity.common": "Häufig",
+  "rarity.rare": "Selten",
+  "rarity.epic": "Besonders",
+
+  "place.collect": "Abzeichen sammeln",
+  "place.collected": "Abzeichen gesammelt",
+  "place.tooFar": "Zu weit: {distance}",
+  "place.navigate": "Navigieren",
+  "place.open": "Informationen öffnen",
+  "place.share": "Link kopieren",
+  "place.linkCopied": "Link kopiert",
+  "place.address": "Adresse",
+  "place.location": "Ort",
+  "place.topics": "Themen",
+  "place.coordinates": "Koordinaten",
+  "place.points": "{points} Pkt.",
+  "place.service": "Serviceobjekt — kein Abzeichen",
+  "place.locked": "Noch nicht gesammelt",
+  "place.lockedHint": "Komme näher als {radius} m, um das Abzeichen zu sammeln.",
+  "place.distanceAway": "{distance} entfernt",
+
+  "collect.success": "Abzeichen gesammelt: {name}",
+  "collect.setCompleted": "Satz vollständig: {name}",
+  "collect.lowAccuracy": "Das Signal ist zu ungenau ({accuracy} m). Warte einige Sekunden.",
+  "collect.needLocation": "Aktiviere die Standortbestimmung, um Abzeichen zu sammeln.",
+  "collect.locationDenied": "Standortzugriff verweigert. Die Karte funktioniert, das Sammeln nicht.",
+
+  "promo.label": "Gesponsertes Objekt",
+  "promo.book": "Buchen",
+  "promo.more": "Mehr erfahren",
+
+  "progress.title": "Sammlung",
+  "progress.of": "{collected} von {total}",
+  "progress.level": "Stufe {level}",
+  "progress.xp": "{xp} Pkt.",
+  "progress.sets": "Sätze",
+  "progress.empty": "Noch keine Abzeichen. Beginne mit dem nächstgelegenen Ort auf der Karte.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Burgberg-Entdecker",
+  "sets.boulders": "Findlingsjäger",
+  "sets.silelis-trail": "Šilelis-Lehrpfad",
+  "sets.town": "Städtchen Wischtiten",
+  "sets.viewpoints": "Aussichtspunkte",
+
+  "safety.borderZone": "Dieser Ort liegt unmittelbar an der Staatsgrenze zum Gebiet Kaliningrad. Beachte die Regeln der Grenzzone; das Mobiltelefon kann ins Roaming wechseln.",
+
+  "privacy.note": "Dein Standort wird nur auf dem Gerät verarbeitet und nirgendwohin gesendet.",
+  "privacy.link": "Datenschutz",
+
+  "empty.noResults": "Keine Orte für die gewählten Filter.",
+
+  "map.attribution": "Kartengrundlage: OpenStreetMap und CARTO"
+}

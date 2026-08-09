@@ -1,0 +1,606 @@
+/* =========================================================================
+   Vistytis badge collection - folk art design system
+   Palette taken from traditional Lithuanian woven sashes; shapes borrow from
+   paper-cut (karpiniai) ornament and carved wood outlines.
+   ========================================================================= */
+
+:root {
+  /* Folk sash palette */
+  --vt-red: #c5372c;
+  --vt-green: #2e6b4f;
+  --vt-blue: #2d7fa8;
+  --vt-amber: #e8a33d;
+  --vt-plum: #7a4b7e;
+  --vt-brown: #8a5a3b;
+
+  --vt-cream: #fbf3e4;
+  --vt-paper: #fff8ec;
+  --vt-ink: #2a2018;
+  --vt-muted: #7a6a58;
+
+  --vt-navbar-height: 3.5rem;
+  --vt-panel-width: 24rem;
+
+  /* Bootstrap overrides */
+  --bs-primary: var(--vt-red);
+  --bs-primary-rgb: 197, 55, 44;
+  --bs-body-bg: var(--vt-cream);
+  --bs-body-color: var(--vt-ink);
+  --bs-border-color: var(--vt-ink);
+  --bs-border-width: 2px;
+  --bs-border-radius: 1rem;
+  --bs-border-radius-sm: 0.65rem;
+  --bs-border-radius-lg: 1.5rem;
+  --bs-body-font-family: Nunito, ui-sans-serif, system-ui, sans-serif;
+  --bs-font-sans-serif: Nunito, ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-bs-theme="dark"] {
+  --vt-cream: #221c17;
+  --vt-paper: #2c251e;
+  --vt-ink: #f5e9d6;
+  --vt-muted: #b3a290;
+
+  --bs-body-bg: var(--vt-cream);
+  --bs-body-color: var(--vt-ink);
+  --bs-border-color: var(--vt-ink);
+  --bs-emphasis-color: var(--vt-ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+h1, h2, h3, h4, h5,
+.vt-display {
+  font-family: Fraunces, Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* -------------------------------------------------------------------------
+   Folk ornament used behind panel headers and empty states.
+   ------------------------------------------------------------------------- */
+.vt-ornament {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%232a2018' stroke-width='1.5' stroke-opacity='0.1'%3E%3Cpath d='M20 3 L29 12 L20 21 L11 12 Z'/%3E%3Cpath d='M20 25 v12 M14 31 h12'/%3E%3Cpath d='M0 25 L7 32 L0 39 M40 25 L33 32 L40 39'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* -------------------------------------------------------------------------
+   Layout. IMPORTANT: Leaflet panes use z-index 400+, so without this reset
+   the map covers the Bootstrap navbar (z-index 1030) and swallows its clicks.
+   ------------------------------------------------------------------------- */
+.leaflet-container {
+  z-index: 0;
+  background: var(--vt-cream);
+  font-family: inherit;
+}
+
+.leaflet-control-container .leaflet-top,
+.leaflet-control-container .leaflet-bottom {
+  z-index: 400;
+}
+
+.navbar {
+  min-height: var(--vt-navbar-height);
+  background: var(--vt-paper) !important;
+  border-bottom: 2px solid var(--vt-ink) !important;
+}
+
+.navbar-brand {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--vt-red);
+}
+
+#map {
+  position: fixed;
+  inset: var(--vt-navbar-height) 0 0 0;
+}
+
+/* -------------------------------------------------------------------------
+   Shared "printed" card shape: thick outline plus a hard, unblurred shadow.
+   ------------------------------------------------------------------------- */
+.vt-card {
+  background: var(--vt-paper);
+  border: 2px solid var(--vt-ink);
+  border-radius: var(--bs-border-radius);
+  box-shadow: 4px 4px 0 var(--vt-ink);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.vt-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--vt-ink);
+}
+
+.vt-card:active,
+.vt-card.is-pressed {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--vt-ink);
+}
+
+.btn {
+  border-width: 2px;
+  font-weight: 700;
+  min-height: 44px; /* thumb-friendly */
+}
+
+.btn-primary,
+.btn-success {
+  box-shadow: 3px 3px 0 var(--vt-ink);
+}
+
+.btn-primary:active,
+.btn-success:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--vt-ink);
+}
+
+.form-control,
+.form-select {
+  border-width: 2px;
+  border-color: var(--vt-ink);
+  background: var(--vt-paper);
+  color: var(--vt-ink);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--vt-red);
+  box-shadow: 0 0 0 0.2rem rgba(197, 55, 44, 0.2);
+}
+
+/* -------------------------------------------------------------------------
+   Panels: bottom sheets on mobile, fixed side panels from lg upwards.
+   ------------------------------------------------------------------------- */
+.offcanvas {
+  background: var(--vt-cream);
+  border: 2px solid var(--vt-ink);
+  color: var(--vt-ink);
+}
+
+.offcanvas-bottom {
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+#places-panel,
+#detail-panel {
+  --bs-offcanvas-height: 68vh;
+}
+
+.offcanvas-header {
+  border-bottom: 2px solid var(--vt-ink);
+}
+
+@media (min-width: 992px) {
+  #places-panel {
+    top: var(--vt-navbar-height);
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: var(--vt-panel-width);
+    height: auto;
+    border-radius: 0;
+    border-width: 0 2px 0 0;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  #detail-panel {
+    top: var(--vt-navbar-height);
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: var(--vt-panel-width);
+    height: auto;
+    border-radius: 0;
+    border-width: 0 0 0 2px;
+  }
+
+  #map {
+    left: var(--vt-panel-width);
+  }
+
+  .offcanvas-backdrop {
+    display: none;
+  }
+
+  #places-toggle {
+    display: none !important;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Place list
+   ------------------------------------------------------------------------- */
+.place-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 0.6rem;
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.place-item h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.place-item p {
+  margin: 0.2rem 0 0;
+  color: var(--vt-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.place-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.place-thumb {
+  flex: 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid var(--vt-ink);
+  object-fit: cover;
+  background: var(--vt-cream);
+}
+
+.place-thumb--placeholder {
+  display: grid;
+  place-items: center;
+  font-family: Fraunces, serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.vt-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.5rem;
+  border: 2px solid var(--vt-ink);
+  border-radius: 99rem;
+  background: var(--vt-paper);
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.vt-chip--collected {
+  background: var(--vt-green);
+  color: #fff;
+}
+
+.vt-chip--in-range {
+  background: var(--vt-amber);
+  color: var(--vt-ink);
+}
+
+/* Category filter chips */
+.filter-chip {
+  flex: 0 0 auto;
+  border: 2px solid var(--vt-ink);
+  border-radius: 99rem;
+  background: var(--vt-paper);
+  color: var(--vt-ink);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-height: 38px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-chip[aria-pressed="true"] {
+  background: var(--chip-color, var(--vt-red));
+  color: #fff;
+}
+
+/* -------------------------------------------------------------------------
+   Map markers
+   ------------------------------------------------------------------------- */
+.vt-marker {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50% 50% 50% 0;
+  border: 2.5px solid var(--vt-ink);
+  background: var(--marker-color, var(--vt-green));
+  box-shadow: 2px 2px 0 rgba(42, 32, 24, 0.35);
+  transform: rotate(-45deg);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.vt-marker > span {
+  transform: rotate(45deg);
+}
+
+.vt-marker--collected {
+  border-radius: 50%;
+  transform: none;
+  background: var(--vt-paper);
+  padding: 0;
+  overflow: hidden;
+}
+
+.vt-marker--collected img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vt-marker--service {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.35rem;
+  transform: none;
+  font-size: 0.6rem;
+}
+
+.vt-marker--promo {
+  width: 2.6rem;
+  height: 2.6rem;
+  animation: vt-pulse 2s ease-in-out infinite;
+}
+
+.vt-marker--active {
+  outline: 3px solid var(--vt-amber);
+  outline-offset: 2px;
+}
+
+@keyframes vt-pulse {
+  50% {
+    transform: rotate(-45deg) scale(1.12);
+  }
+}
+
+.vt-user-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 3px solid var(--vt-paper);
+  background: var(--vt-blue);
+  box-shadow: 0 0 0 2px var(--vt-ink);
+}
+
+/* -------------------------------------------------------------------------
+   Promo block
+   ------------------------------------------------------------------------- */
+.promo-card {
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+  border-bottom: 2px solid var(--vt-ink);
+}
+
+.promo-label {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border: 2px solid var(--vt-ink);
+  border-radius: 99rem;
+  background: var(--vt-amber);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* -------------------------------------------------------------------------
+   Badge collection
+   ------------------------------------------------------------------------- */
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr));
+  gap: 0.9rem;
+}
+
+.badge-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.35rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+.badge-tile img,
+.badge-tile .badge-placeholder {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.badge-placeholder {
+  display: grid;
+  place-items: center;
+  border: 3px dashed var(--vt-muted);
+  color: var(--vt-muted);
+  font-size: 1.6rem;
+}
+
+.badge-tile.is-locked img {
+  filter: grayscale(1) brightness(0.6);
+  opacity: 0.75;
+}
+
+.badge-tile figcaption,
+.badge-tile span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.badge-tile.is-new img {
+  animation: vt-pop 600ms ease;
+}
+
+@keyframes vt-pop {
+  0% { transform: scale(0.4) rotate(-25deg); }
+  60% { transform: scale(1.15) rotate(6deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* Progress ring used in the navbar */
+.progress-ring {
+  --progress: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 2px solid var(--vt-ink);
+  background:
+    conic-gradient(var(--vt-green) calc(var(--progress) * 1%), rgba(42, 32, 24, 0.12) 0);
+  font-size: 0.62rem;
+  font-weight: 800;
+}
+
+.progress-ring > span {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background: var(--vt-paper);
+}
+
+.progress {
+  border: 2px solid var(--vt-ink);
+  border-radius: 99rem;
+  background: var(--vt-cream);
+  height: 0.9rem;
+}
+
+.progress-bar {
+  background: var(--vt-green);
+}
+
+/* -------------------------------------------------------------------------
+   Detail panel
+   ------------------------------------------------------------------------- */
+.detail-hero {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.detail-badge {
+  width: 5.5rem;
+  height: 5.5rem;
+  flex: 0 0 auto;
+}
+
+.detail-meta dt {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vt-muted);
+}
+
+.detail-meta dd {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+}
+
+.safety-note {
+  border: 2px solid var(--vt-ink);
+  border-left-width: 8px;
+  border-left-color: var(--vt-amber);
+  border-radius: var(--bs-border-radius-sm);
+  background: var(--vt-paper);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.78rem;
+}
+
+/* Toasts */
+.toast {
+  border: 2px solid var(--vt-ink);
+  border-radius: var(--bs-border-radius);
+  box-shadow: 4px 4px 0 var(--vt-ink);
+  background: var(--vt-paper);
+  color: var(--vt-ink);
+  font-weight: 700;
+}
+
+/* Dev GPS banner */
+.dev-banner {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 2000;
+  padding: 0.2rem 0.5rem;
+  background: var(--vt-amber);
+  border-bottom: 2px solid var(--vt-ink);
+  color: var(--vt-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+body.has-dev-banner {
+  --vt-navbar-height: 5rem;
+}
+
+/* Loading overlay */
+#loading {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: grid;
+  place-items: center;
+  background: var(--vt-cream);
+  font-weight: 700;
+}
+
+#loading[hidden] {
+  display: none;
+}
+
+/* Required: respect the operating system setting. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "rarity": {
+    "epic": {
+      "points": 30,
+      "color": "#e8a33d",
+      "topics": ["Piliakalniai", "Atodangos", "Šaltiniai"]
+    },
+    "rare": {
+      "points": 20,
+      "color": "#2d7fa8",
+      "topics": [
+        "Apžvalgos vietos",
+        "Akmenys",
+        "Botaniniai objektai",
+        "Vėjo malūnai",
+        "Memorialinės vietos"
+      ]
+    },
+    "common": {
+      "points": 10,
+      "color": "#2e6b4f",
+      "topics": []
+    }
+  },
+  "defaultRadiusM": 75,
+  "radiusByCategory": {
+    "Gamta": 120,
+    "Takai": 150
+  },
+  "minAccuracyM": 50,
+  "nearbyThresholdM": 250,
+  "categoryColors": {
+    "Kultūros paveldas": "#c5372c",
+    "Gamta": "#2e6b4f",
+    "Apžvalgos vietos": "#2d7fa8",
+    "Takai": "#e8a33d",
+    "Poilsis ir nakvynė": "#7a4b7e",
+    "Lankytojų paslaugos": "#8a5a3b"
+  },
+  "sets": [
+    { "id": "hillforts", "match": { "topics": ["Piliakalniai"] }, "bonusPoints": 50 },
+    { "id": "boulders", "match": { "topics": ["Akmenys"] }, "bonusPoints": 30 },
+    { "id": "silelis-trail", "match": { "city": ["Čižiškiai", "Pakalniai"] }, "bonusPoints": 40 },
+    { "id": "town", "match": { "city": ["Vištytis"] }, "bonusPoints": 40 },
+    { "id": "viewpoints", "match": { "categories": ["Apžvalgos vietos"] }, "bonusPoints": 30 }
+  ],
+  "levels": { "base": 100, "exponent": 1.5 }
+}

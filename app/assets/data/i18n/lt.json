@@ -1,0 +1,82 @@
+{
+  "app.title": "Vištytis",
+  "app.tagline": "Rink krašto ženklelius",
+
+  "common.loading": "Kraunama…",
+  "common.close": "Uždaryti",
+  "common.search": "Ieškoti vietos, miestelio ar temos…",
+  "common.retry": "Bandyti dar kartą",
+  "common.error": "Nepavyko įkelti duomenų.",
+
+  "nav.places": "Vietos",
+  "nav.collection": "Kolekcija",
+  "nav.language": "Kalba",
+  "nav.locate": "Mano vieta",
+  "places.visible": "{count} vietų rodoma",
+  "places.map": "Žemėlapis",
+  "places.list": "Sąrašas",
+
+  "filters.all": "Visos",
+  "filters.services": "Paslaugos",
+
+  "category.heritage": "Kultūros paveldas",
+  "category.nature": "Gamta",
+  "category.viewpoints": "Apžvalgos vietos",
+  "category.trails": "Takai",
+  "category.accommodation": "Poilsis ir nakvynė",
+  "category.services": "Lankytojų paslaugos",
+
+  "rarity.common": "Dažnas",
+  "rarity.rare": "Retas",
+  "rarity.epic": "Ypatingas",
+
+  "place.collect": "Surinkti ženklelį",
+  "place.collected": "Ženklelis surinktas",
+  "place.tooFar": "Per toli: {distance}",
+  "place.navigate": "Naviguoti",
+  "place.open": "Atverti informaciją",
+  "place.share": "Kopijuoti nuorodą",
+  "place.linkCopied": "Nuoroda nukopijuota",
+  "place.address": "Adresas",
+  "place.location": "Vieta",
+  "place.topics": "Temos",
+  "place.coordinates": "Koordinatės",
+  "place.points": "{points} tšk.",
+  "place.service": "Paslaugų objektas — ženklelio nėra",
+  "place.locked": "Dar nesurinkta",
+  "place.lockedHint": "Prieik arčiau nei {radius} m ir surink ženklelį.",
+  "place.distanceAway": "už {distance}",
+
+  "collect.success": "Ženklelis surinktas: {name}",
+  "collect.setCompleted": "Rinkinys užbaigtas: {name}",
+  "collect.lowAccuracy": "Signalas per netikslus ({accuracy} m). Palaukite kelias sekundes.",
+  "collect.needLocation": "Įjunkite vietos nustatymą, kad galėtumėte rinkti ženklelius.",
+  "collect.locationDenied": "Vietos leidimas atmestas. Žemėlapis veikia, bet rinkti negalėsite.",
+
+  "promo.label": "Rėmėjo objektas",
+  "promo.book": "Rezervuoti",
+  "promo.more": "Plačiau",
+
+  "progress.title": "Kolekcija",
+  "progress.of": "{collected} iš {total}",
+  "progress.level": "Lygis {level}",
+  "progress.xp": "{xp} tšk.",
+  "progress.sets": "Rinkiniai",
+  "progress.empty": "Dar nesurinkai nė vieno ženklelio. Pradėk nuo artimiausio objekto žemėlapyje.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Piliakalnių tyrinėtojas",
+  "sets.boulders": "Akmenų medžiotojas",
+  "sets.silelis-trail": "Šilelio takas",
+  "sets.town": "Vištyčio miestelis",
+  "sets.viewpoints": "Regyklos",
+
+  "safety.borderZone": "Objektas yra prie valstybės sienos su Kaliningrado sritimi. Laikykitės pasienio ruožo taisyklių ir atkreipkite dėmesį, kad telefonas gali persijungti į tarptinklinį ryšį.",
+
+  "privacy.note": "Jūsų vieta apdorojama tik įrenginyje ir niekur nesiunčiama.",
+  "privacy.link": "Privatumas",
+
+  "empty.noResults": "Pagal pasirinktus filtrus vietų nerasta.",
+
+  "map.attribution": "Žemėlapio pagrindas: OpenStreetMap ir CARTO"
+}

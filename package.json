@@ -1,0 +1,19 @@
+{
+  "name": "vistytis-com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vistytis regional park interactive map and badge collection",
+  "type": "module",
+  "scripts": {
+    "add-ids": "node scripts/add-ids.mjs",
+    "add-i18n": "node scripts/add-i18n.mjs",
+    "badge-prompts": "node scripts/badge-prompts.mjs",
+    "build-badges": "node scripts/build-badges.mjs",
+    "build:web": "node scripts/build-web.mjs",
+    "serve": "node scripts/serve.mjs",
+    "serve:web": "npm run build:web && node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

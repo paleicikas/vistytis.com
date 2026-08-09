@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Vištytis",
+    "slug": "vistytis",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "vistytis",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Vištyčio aplikacijai reikia vietos leidimo, kad galėtumėte rasti artimiausias vietas ir rinkti ženklelius."
+        }
+      ],
+      "expo-asset"
+    ],
+    "android": {
+      "package": "com.vistytis.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1e4d49"
+      }
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Vieta naudojama artimiausioms lankytinoms vietoms ir ženklelių rinkimui."
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

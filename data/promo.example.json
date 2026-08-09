@@ -1,0 +1,12 @@
+[
+  {
+    "placeId": "kempingas-pusele",
+    "headline": "Nakvok prie ežero",
+    "blurb": "Trumpas rėmėjo tekstas, iki dviejų sakinių.",
+    "image": "assets/img/promo/pusele.jpg",
+    "cta": { "labelKey": "promo.book", "url": "https://example.lt" },
+    "bonusPoints": 0,
+    "activeFrom": "2026-08-01",
+    "activeUntil": "2026-09-30"
+  }
+]

@@ -1,0 +1,82 @@
+{
+  "app.title": "Vištytis",
+  "app.tagline": "Collect the badges of the region",
+
+  "common.loading": "Loading…",
+  "common.close": "Close",
+  "common.search": "Search for a place, village or topic…",
+  "common.retry": "Try again",
+  "common.error": "Could not load the data.",
+
+  "nav.places": "Places",
+  "nav.collection": "Collection",
+  "nav.language": "Language",
+  "nav.locate": "My location",
+  "places.visible": "{count} places shown",
+  "places.map": "Map",
+  "places.list": "List",
+
+  "filters.all": "All",
+  "filters.services": "Services",
+
+  "category.heritage": "Cultural heritage",
+  "category.nature": "Nature",
+  "category.viewpoints": "Viewpoints",
+  "category.trails": "Trails",
+  "category.accommodation": "Stay and rest",
+  "category.services": "Visitor services",
+
+  "rarity.common": "Common",
+  "rarity.rare": "Rare",
+  "rarity.epic": "Epic",
+
+  "place.collect": "Collect badge",
+  "place.collected": "Badge collected",
+  "place.tooFar": "Too far: {distance}",
+  "place.navigate": "Navigate",
+  "place.open": "Open details",
+  "place.share": "Copy link",
+  "place.linkCopied": "Link copied",
+  "place.address": "Address",
+  "place.location": "Location",
+  "place.topics": "Topics",
+  "place.coordinates": "Coordinates",
+  "place.points": "{points} pts",
+  "place.service": "Service location — no badge here",
+  "place.locked": "Not collected yet",
+  "place.lockedHint": "Get within {radius} m to collect the badge.",
+  "place.distanceAway": "{distance} away",
+
+  "collect.success": "Badge collected: {name}",
+  "collect.setCompleted": "Set completed: {name}",
+  "collect.lowAccuracy": "Signal is too imprecise ({accuracy} m). Wait a few seconds.",
+  "collect.needLocation": "Turn on location to collect badges.",
+  "collect.locationDenied": "Location permission denied. The map still works, but collecting does not.",
+
+  "promo.label": "Sponsored place",
+  "promo.book": "Book",
+  "promo.more": "Learn more",
+
+  "progress.title": "Collection",
+  "progress.of": "{collected} of {total}",
+  "progress.level": "Level {level}",
+  "progress.xp": "{xp} pts",
+  "progress.sets": "Sets",
+  "progress.empty": "No badges yet. Start with the nearest place on the map.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Hillfort explorer",
+  "sets.boulders": "Boulder hunter",
+  "sets.silelis-trail": "Šilelis trail",
+  "sets.town": "Vištytis town",
+  "sets.viewpoints": "Viewpoints",
+
+  "safety.borderZone": "This place sits next to the state border with the Kaliningrad region. Follow the border zone rules and note that your phone may switch to roaming.",
+
+  "privacy.note": "Your location is processed on your device only and is never sent anywhere.",
+  "privacy.link": "Privacy",
+
+  "empty.noResults": "No places match the current filters.",
+
+  "map.attribution": "Base map: OpenStreetMap and CARTO"
+}

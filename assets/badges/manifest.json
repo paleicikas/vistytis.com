@@ -1,0 +1,562 @@
+{
+  "vistycio-piliakalnis": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "epic",
+    "color": "#e8a33d",
+    "source": "assets/badges/raw/vistycio-piliakalnis.png",
+    "builtAt": "2026-08-09T17:45:05.177Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "auksciausia-vistycio-egle": {
+    "collectible": true,
+    "category": "Gamta",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/auksciausia-vistycio-egle.png",
+    "builtAt": "2026-08-09T17:45:00.560Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "buvusios-vistycio-cerkves-vieta": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/buvusios-vistycio-cerkves-vieta.png",
+    "builtAt": "2026-08-09T17:45:00.739Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "buvusios-vistycio-sinagogos-vieta": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/buvusios-vistycio-sinagogos-vieta.png",
+    "builtAt": "2026-08-09T17:45:00.918Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "dabravoles-piliakalnis": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "epic",
+    "color": "#e8a33d",
+    "source": "assets/badges/raw/dabravoles-piliakalnis.png",
+    "builtAt": "2026-08-09T17:45:01.096Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "dabrovoles-daugiakamiene-liepa": {
+    "collectible": true,
+    "category": "Gamta",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/dabrovoles-daugiakamiene-liepa.png",
+    "builtAt": "2026-08-09T17:45:01.275Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "didysis-vistycio-akmuo": {
+    "collectible": true,
+    "category": "Gamta",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/didysis-vistycio-akmuo.png",
+    "builtAt": "2026-08-09T17:45:01.452Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "liubiskiu-akmuo": {
+    "collectible": true,
+    "category": "Gamta",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/liubiskiu-akmuo.png",
+    "builtAt": "2026-08-09T17:45:01.912Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "liubiskiu-dvaras": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/liubiskiu-dvaras.png",
+    "builtAt": "2026-08-09T17:45:02.078Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "mediniu-skulpturu-aleja": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/mediniu-skulpturu-aleja.png",
+    "builtAt": "2026-08-09T17:45:02.249Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "muziejus-metalo-fantazija": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/muziejus-metalo-fantazija.png",
+    "builtAt": "2026-08-09T17:45:02.414Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "paminklas-vistyciui": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/paminklas-vistyciui.png",
+    "builtAt": "2026-08-09T17:45:02.575Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "paminklas-vytautui-didziajam-vistytis": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/paminklas-vytautui-didziajam-vistytis.png",
+    "builtAt": "2026-08-09T17:45:02.740Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "pavistycio-i-piliakalnis": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "epic",
+    "color": "#e8a33d",
+    "source": "assets/badges/raw/pavistycio-i-piliakalnis.png",
+    "builtAt": "2026-08-09T17:45:02.899Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "pavistycio-ii-piliakalnis": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "epic",
+    "color": "#e8a33d",
+    "source": "assets/badges/raw/pavistycio-ii-piliakalnis.png",
+    "builtAt": "2026-08-09T17:45:03.061Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "raganos-sluota": {
+    "collectible": true,
+    "category": "Gamta",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/raganos-sluota.png",
+    "builtAt": "2026-08-09T17:45:03.354Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "regykla-trys-ezerai": {
+    "collectible": true,
+    "category": "Apžvalgos vietos",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/regykla-trys-ezerai.png",
+    "builtAt": "2026-08-09T17:45:03.519Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "regykla-vaizdas-i-romintos-giria": {
+    "collectible": true,
+    "category": "Apžvalgos vietos",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/regykla-vaizdas-i-romintos-giria.png",
+    "builtAt": "2026-08-09T17:45:03.680Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "suopkalnis": {
+    "collectible": true,
+    "category": "Apžvalgos vietos",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/suopkalnis.png",
+    "builtAt": "2026-08-09T17:45:04.113Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "vistycio-apzvalgos-vieta": {
+    "collectible": true,
+    "category": "Apžvalgos vietos",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/vistycio-apzvalgos-vieta.png",
+    "builtAt": "2026-08-09T17:45:04.542Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "vistycio-evangeliku-liuteronu-baznycia": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/vistycio-evangeliku-liuteronu-baznycia.png",
+    "builtAt": "2026-08-09T17:45:04.699Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "vistycio-holokausto-auku-memorialas": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/vistycio-holokausto-auku-memorialas.png",
+    "builtAt": "2026-08-09T17:45:04.857Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "vistycio-lauko-ii-piliakalnis": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "epic",
+    "color": "#e8a33d",
+    "source": "assets/badges/raw/vistycio-lauko-ii-piliakalnis.png",
+    "builtAt": "2026-08-09T17:45:05.018Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "vistycio-vejo-malunas": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "rare",
+    "color": "#2d7fa8",
+    "source": "assets/badges/raw/vistycio-vejo-malunas.png",
+    "builtAt": "2026-08-09T17:45:05.729Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "vistycio-svc-trejybes-baznycia": {
+    "collectible": true,
+    "category": "Kultūros paveldas",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/vistycio-svc-trejybes-baznycia.png",
+    "builtAt": "2026-08-09T17:45:05.891Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "silelio-atodanga": {
+    "collectible": true,
+    "category": "Apžvalgos vietos",
+    "rarity": "epic",
+    "color": "#e8a33d",
+    "source": "assets/badges/raw/silelio-atodanga.png",
+    "builtAt": "2026-08-09T17:45:06.186Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "silelio-mazasis-pazintinis-takas": {
+    "collectible": true,
+    "category": "Takai",
+    "rarity": "common",
+    "color": "#2e6b4f",
+    "source": "assets/badges/raw/silelio-mazasis-pazintinis-takas.png",
+    "builtAt": "2026-08-09T17:45:06.352Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "sventas-vistycio-saltinis": {
+    "collectible": true,
+    "category": "Gamta",
+    "rarity": "epic",
+    "color": "#e8a33d",
+    "source": "assets/badges/raw/sventas-vistycio-saltinis.png",
+    "builtAt": "2026-08-09T17:45:06.639Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": true
+  },
+  "kempingas-pusele": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/kempingas-pusele.png",
+    "builtAt": "2026-08-09T17:45:01.595Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "kempingas-poilsiaviete-viktorija": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/kempingas-poilsiaviete-viktorija.png",
+    "builtAt": "2026-08-09T17:45:01.739Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "poilsis-vistytyje": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/poilsis-vistytyje.png",
+    "builtAt": "2026-08-09T17:45:03.192Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "sodyba-asterhouse": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/sodyba-asterhouse.png",
+    "builtAt": "2026-08-09T17:45:03.812Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "strucio-namas": {
+    "collectible": false,
+    "category": "Lankytojų paslaugos",
+    "rarity": "common",
+    "color": "#8a5a3b",
+    "source": "assets/badges/raw/strucio-namas.png",
+    "builtAt": "2026-08-09T17:45:03.945Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "sup-savitarna-vistytis": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/sup-savitarna-vistytis.png",
+    "builtAt": "2026-08-09T17:45:04.245Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "vila-vistytyje": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/vila-vistytyje.png",
+    "builtAt": "2026-08-09T17:45:04.376Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "vistycio-poilsiaviete": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/vistycio-poilsiaviete.png",
+    "builtAt": "2026-08-09T17:45:05.305Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "vistycio-regioninio-parko-lankytoju-centras": {
+    "collectible": false,
+    "category": "Lankytojų paslaugos",
+    "rarity": "common",
+    "color": "#8a5a3b",
+    "source": "assets/badges/raw/vistycio-regioninio-parko-lankytoju-centras.png",
+    "builtAt": "2026-08-09T17:45:05.438Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "vistycio-stovyklaviete": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/vistycio-stovyklaviete.png",
+    "builtAt": "2026-08-09T17:45:05.567Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "ilankos-poilsiaviete": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/ilankos-poilsiaviete.png",
+    "builtAt": "2026-08-09T17:45:06.028Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  },
+  "silelio-stovyklaviete": {
+    "collectible": false,
+    "category": "Poilsis ir nakvynė",
+    "rarity": "common",
+    "color": "#7a4b7e",
+    "source": "assets/badges/raw/silelio-stovyklaviete.png",
+    "builtAt": "2026-08-09T17:45:06.481Z",
+    "sizes": [
+      512,
+      256,
+      128
+    ],
+    "locked": false
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "app.title": "Wisztyniec",
+  "app.tagline": "Zbieraj odznaki regionu",
+
+  "common.loading": "Wczytywanie…",
+  "common.close": "Zamknij",
+  "common.search": "Szukaj miejsca, wsi lub tematu…",
+  "common.retry": "Spróbuj ponownie",
+  "common.error": "Nie udało się wczytać danych.",
+
+  "nav.places": "Miejsca",
+  "nav.collection": "Kolekcja",
+  "nav.language": "Język",
+  "nav.locate": "Moja lokalizacja",
+  "places.visible": "{count} miejsc",
+  "places.map": "Mapa",
+  "places.list": "Lista",
+
+  "filters.all": "Wszystkie",
+  "filters.services": "Usługi",
+
+  "category.heritage": "Dziedzictwo kulturowe",
+  "category.nature": "Przyroda",
+  "category.viewpoints": "Punkty widokowe",
+  "category.trails": "Szlaki",
+  "category.accommodation": "Nocleg i wypoczynek",
+  "category.services": "Obsługa turystów",
+
+  "rarity.common": "Zwykła",
+  "rarity.rare": "Rzadka",
+  "rarity.epic": "Wyjątkowa",
+
+  "place.collect": "Zdobądź odznakę",
+  "place.collected": "Odznaka zdobyta",
+  "place.tooFar": "Za daleko: {distance}",
+  "place.navigate": "Nawiguj",
+  "place.open": "Otwórz informacje",
+  "place.share": "Kopiuj link",
+  "place.linkCopied": "Link skopiowany",
+  "place.address": "Adres",
+  "place.location": "Miejscowość",
+  "place.topics": "Tematy",
+  "place.coordinates": "Współrzędne",
+  "place.points": "{points} pkt",
+  "place.service": "Obiekt usługowy — bez odznaki",
+  "place.locked": "Jeszcze niezdobyta",
+  "place.lockedHint": "Podejdź bliżej niż {radius} m, aby zdobyć odznakę.",
+  "place.distanceAway": "{distance} stąd",
+
+  "collect.success": "Odznaka zdobyta: {name}",
+  "collect.setCompleted": "Zestaw ukończony: {name}",
+  "collect.lowAccuracy": "Sygnał jest zbyt niedokładny ({accuracy} m). Poczekaj kilka sekund.",
+  "collect.needLocation": "Włącz lokalizację, aby zbierać odznaki.",
+  "collect.locationDenied": "Odmówiono dostępu do lokalizacji. Mapa działa, ale zbieranie nie.",
+
+  "promo.label": "Obiekt sponsorowany",
+  "promo.book": "Rezerwuj",
+  "promo.more": "Więcej",
+
+  "progress.title": "Kolekcja",
+  "progress.of": "{collected} z {total}",
+  "progress.level": "Poziom {level}",
+  "progress.xp": "{xp} pkt",
+  "progress.sets": "Zestawy",
+  "progress.empty": "Nie masz jeszcze odznak. Zacznij od najbliższego miejsca na mapie.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Odkrywca grodzisk",
+  "sets.boulders": "Łowca głazów",
+  "sets.silelis-trail": "Szlak Šilelis",
+  "sets.town": "Miasteczko Wisztyniec",
+  "sets.viewpoints": "Punkty widokowe",
+
+  "safety.borderZone": "Obiekt znajduje się przy granicy państwowej z obwodem kaliningradzkim. Przestrzegaj zasad strefy przygranicznej i pamiętaj, że telefon może przełączyć się na roaming.",
+
+  "privacy.note": "Twoja lokalizacja jest przetwarzana wyłącznie na urządzeniu i nigdzie nie jest wysyłana.",
+  "privacy.link": "Prywatność",
+
+  "empty.noResults": "Brak miejsc dla wybranych filtrów.",
+
+  "map.attribution": "Podkład mapowy: OpenStreetMap i CARTO"
+}
