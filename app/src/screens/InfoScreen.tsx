@@ -340,6 +340,10 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   photoCard: {
+    alignSelf: "stretch",
+    width: "100%",
+    maxWidth: "100%",
+    minWidth: 0,
     marginTop: spacing.md,
     overflow: "hidden",
     borderRadius: 18,
@@ -348,8 +352,12 @@ const styles = StyleSheet.create({
     borderColor: colors.line,
   },
   photo: {
+    alignSelf: "stretch",
     width: "100%",
-    aspectRatio: 1.985,
+    maxWidth: "100%",
+    minWidth: 0,
+    flexShrink: 1,
+    aspectRatio: 1.987,
   },
   photoCaption: {
     padding: spacing.md,
