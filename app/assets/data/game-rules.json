@@ -23,7 +23,7 @@
       "topics": []
     }
   },
-  "defaultRadiusM": 75,
+  "defaultRadiusM": 100,
   "radiusByCategory": {
     "Gamta": 120,
     "Takai": 150

@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { categoryLabel, localizePlace, translate } from "../i18n";
-import { formatDistance, placeRarity } from "../game";
+import { formatDistance } from "../game";
 import { categoryColors, colors, spacing } from "../theme";
 import type { Locale, Place } from "../types";
 
@@ -22,20 +22,23 @@ export function PlaceCard({
 }: Props) {
   const content = localizePlace(place, locale);
   const category = place.categories[0] ?? "Lankytina vieta";
-  const rarity = placeRarity(place);
 
   return (
     <Pressable
       accessibilityRole="button"
       accessibilityLabel={content.name}
       onPress={onPress}
-      style={({ pressed }) => [styles.card, pressed && styles.pressed]}
+      style={({ pressed }) => [
+        styles.card,
+        collected && styles.collectedCard,
+        pressed && styles.pressed,
+      ]}
     >
       <View style={styles.row}>
         <View
           style={[
             styles.dot,
-            { backgroundColor: categoryColors[category] ?? colors.green },
+            { backgroundColor: categoryColors[category] ?? colors.primary },
           ]}
         />
         <View style={styles.copy}>
@@ -45,7 +48,7 @@ export function PlaceCard({
             </Text>
             {place.collectible ? (
               <Ionicons
-                color={collected ? colors.green : colors.muted}
+                color={collected ? colors.secondaryDark : colors.muted}
                 name={collected ? "checkmark-circle" : "ellipse-outline"}
                 size={18}
               />
@@ -55,16 +58,15 @@ export function PlaceCard({
           <Text numberOfLines={2} style={styles.description}>
             {content.description}
           </Text>
-          <View style={styles.meta}>
-            <Text style={styles.metaText}>
-              {place.collectible
-                ? translate(locale, `rarity.${rarity}`)
-                : translate(locale, "place.service")}
-            </Text>
-            {distanceM !== null ? (
-              <Text style={styles.metaText}>{formatDistance(distanceM)}</Text>
-            ) : null}
-          </View>
+          {distanceM !== null ? (
+            <View style={styles.meta}>
+              <Text style={styles.distanceText}>
+                {translate(locale, "place.distanceAway", {
+                  distance: formatDistance(distanceM),
+                })}
+              </Text>
+            </View>
+          ) : null}
         </View>
         <Ionicons color={colors.muted} name="chevron-forward" size={18} />
       </View>
@@ -79,7 +81,11 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: "rgba(29, 48, 48, 0.07)",
+    borderColor: "rgba(74, 37, 32, 0.08)",
+  },
+  collectedCard: {
+    backgroundColor: colors.secondaryLight,
+    borderColor: "rgba(232, 163, 61, 0.42)",
   },
   pressed: {
     opacity: 0.78,
@@ -113,7 +119,7 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   category: {
-    color: colors.green,
+    color: colors.primary,
     fontSize: 11,
     fontWeight: "800",
     textTransform: "uppercase",
@@ -129,9 +135,9 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     marginTop: 3,
   },
-  metaText: {
-    color: "#87938e",
+  distanceText: {
+    color: colors.primaryDark,
     fontSize: 11,
-    fontWeight: "700",
+    fontWeight: "800",
   },
 });

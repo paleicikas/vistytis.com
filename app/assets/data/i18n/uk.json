@@ -1,0 +1,85 @@
+{
+  "app.title": "Vištytis",
+  "app.tagline": "Збирай значки краю",
+
+  "common.loading": "Завантаження…",
+  "common.close": "Закрити",
+  "common.search": "Шукати місце, село або тему…",
+  "common.retry": "Спробувати ще раз",
+  "common.error": "Не вдалося завантажити дані.",
+
+  "nav.places": "Місця",
+  "nav.collection": "Колекція",
+  "nav.language": "Мова",
+  "nav.locate": "Моє місце",
+  "places.visible": "Показано місць: {count}",
+  "places.map": "Карта",
+  "places.list": "Список",
+  "places.refreshDistances": "Оновити відстані",
+
+  "filters.all": "Усі",
+  "filters.services": "Послуги",
+
+  "category.heritage": "Культурна спадщина",
+  "category.nature": "Природа",
+  "category.viewpoints": "Оглядові місця",
+  "category.trails": "Стежки",
+  "category.accommodation": "Відпочинок і нічліг",
+  "category.services": "Послуги для відвідувачів",
+
+  "rarity.common": "Звичайний значок",
+  "rarity.rare": "Рідкісний значок",
+  "rarity.epic": "Особливий значок",
+
+  "place.collect": "Отримати значок",
+  "place.collected": "Значок уже твій",
+  "place.tooFar": "Занадто далеко: {distance}",
+  "place.navigate": "Як дістатися",
+  "place.open": "Більше інформації",
+  "place.share": "Поділитися",
+  "place.linkCopied": "Посилання скопійовано",
+  "place.address": "Адреса",
+  "place.location": "Місцевість",
+  "place.topics": "Теми",
+  "place.coordinates": "Координати",
+  "place.points": "{points} б.",
+  "place.service": "Місце послуг — значка тут немає",
+  "place.locked": "Ще не отриманий",
+  "place.lockedHint": "Підійди ближче ніж на {radius} м і отримай значок.",
+  "place.distanceAway": "за {distance}",
+
+  "collect.success": "Значок твій: {name}",
+  "collect.badgeUnlocked": "Значок відкрито!",
+  "collect.celebrationHint": "Його додано до твоєї колекції.",
+  "collect.continue": "Далі",
+  "collect.shareBadge": "Я отримав значок «{name}» у Віштітісі!",
+  "collect.setCompleted": "Набір завершено: {name}",
+  "collect.lowAccuracy": "Точність визначення місця надто низька ({accuracy} м). Почекай кілька секунд.",
+  "collect.needLocation": "Увімкни визначення місця, щоб збирати значки.",
+  "collect.locationDenied": "Доступ до місцеположення заборонено. Карта працює, але значки збирати не вдасться.",
+
+  "promo.label": "Місце спонсора",
+  "promo.book": "Забронювати",
+  "promo.more": "Докладніше",
+
+  "progress.title": "Колекція",
+  "progress.of": "{collected} з {total}",
+  "progress.level": "Рівень {level}",
+  "progress.xp": "{xp} б.",
+  "progress.sets": "Набори",
+  "progress.empty": "Поки що немає жодного значка. Почни з найближчого місця на карті.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Дослідник городищ",
+  "sets.boulders": "Ловець валунів",
+  "sets.silelis-trail": "Стежка Шилеліс",
+  "sets.town": "Містечко Віштітіс",
+  "sets.viewpoints": "Оглядові місця",
+
+  "privacy.note": "Твоє місцеположення обробляється лише на цьому пристрої й нікуди не надсилається.",
+  "privacy.link": "Приватність",
+
+  "empty.noResults": "За вибраними фільтрами місць не знайдено.",
+
+  "map.attribution": "Основа карти: OpenStreetMap і CARTO"
+}

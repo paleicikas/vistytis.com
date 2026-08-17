@@ -18,23 +18,39 @@ export default function MainTabs() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: colors.green,
+        tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.muted,
+        tabBarActiveBackgroundColor: colors.primaryLight,
+        tabBarShowLabel: true,
         tabBarStyle: {
-          height: 74 + insets.bottom,
-          paddingTop: 8,
-          paddingBottom: 12 + insets.bottom,
+          height: 68 + insets.bottom,
+          paddingTop: 4,
+          paddingBottom: 4 + insets.bottom,
           backgroundColor: colors.paper,
           borderTopColor: colors.line,
         },
+        tabBarItemStyle: {
+          marginHorizontal: 8,
+          marginVertical: 0,
+          borderRadius: 12,
+        },
         tabBarLabelStyle: {
           fontSize: 11,
+          lineHeight: 16,
           fontWeight: "700",
         },
-        tabBarIcon: ({ color, size }) => (
+        tabBarIcon: ({ color, size, focused }) => (
           <Ionicons
             color={color}
-            name={route.name === "Collection" ? "ribbon-outline" : "map-outline"}
+            name={
+              route.name === "Collection"
+                ? focused
+                  ? "ribbon"
+                  : "ribbon-outline"
+                : focused
+                  ? "map"
+                  : "map-outline"
+            }
             size={size}
           />
         ),

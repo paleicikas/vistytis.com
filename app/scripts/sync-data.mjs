@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -19,6 +19,20 @@ for (const fileName of await readdir(path.join(sourceData, "i18n"))) {
       path.join(sourceData, "i18n", fileName),
       path.join(targetData, "i18n", fileName)
     );
+  }
+}
+
+const places = JSON.parse(
+  await readFile(path.join(sourceData, "places.json"), "utf8")
+);
+const sourceBadges = path.join(repositoryRoot, "assets", "badges", "out");
+const targetBadges = path.join(appRoot, "assets", "badges", "out");
+await mkdir(targetBadges, { recursive: true });
+
+for (const place of places.filter((item) => item.collectible)) {
+  for (const suffix of ["256.png", "locked-256.png"]) {
+    const fileName = `${place.id}-${suffix}`;
+    await cp(path.join(sourceBadges, fileName), path.join(targetBadges, fileName));
   }
 }
 

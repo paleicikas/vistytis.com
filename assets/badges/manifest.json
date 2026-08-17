@@ -5,13 +5,14 @@
     "rarity": "epic",
     "color": "#e8a33d",
     "source": "assets/badges/raw/vistycio-piliakalnis.png",
-    "builtAt": "2026-08-09T17:45:05.177Z",
+    "builtAt": "2026-08-10T09:27:31.604Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "auksciausia-vistycio-egle": {
     "collectible": true,
@@ -19,13 +20,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/auksciausia-vistycio-egle.png",
-    "builtAt": "2026-08-09T17:45:00.560Z",
+    "builtAt": "2026-08-10T09:27:27.925Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "buvusios-vistycio-cerkves-vieta": {
     "collectible": true,
@@ -33,13 +35,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/buvusios-vistycio-cerkves-vieta.png",
-    "builtAt": "2026-08-09T17:45:00.739Z",
+    "builtAt": "2026-08-10T09:27:28.105Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "buvusios-vistycio-sinagogos-vieta": {
     "collectible": true,
@@ -47,13 +50,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/buvusios-vistycio-sinagogos-vieta.png",
-    "builtAt": "2026-08-09T17:45:00.918Z",
+    "builtAt": "2026-08-10T09:27:28.282Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "dabravoles-piliakalnis": {
     "collectible": true,
@@ -61,13 +65,14 @@
     "rarity": "epic",
     "color": "#e8a33d",
     "source": "assets/badges/raw/dabravoles-piliakalnis.png",
-    "builtAt": "2026-08-09T17:45:01.096Z",
+    "builtAt": "2026-08-10T09:27:28.458Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "dabrovoles-daugiakamiene-liepa": {
     "collectible": true,
@@ -75,13 +80,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/dabrovoles-daugiakamiene-liepa.png",
-    "builtAt": "2026-08-09T17:45:01.275Z",
+    "builtAt": "2026-08-10T09:27:28.640Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "didysis-vistycio-akmuo": {
     "collectible": true,
@@ -89,13 +95,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/didysis-vistycio-akmuo.png",
-    "builtAt": "2026-08-09T17:45:01.452Z",
+    "builtAt": "2026-08-10T09:27:28.822Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "liubiskiu-akmuo": {
     "collectible": true,
@@ -103,13 +110,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/liubiskiu-akmuo.png",
-    "builtAt": "2026-08-09T17:45:01.912Z",
+    "builtAt": "2026-08-10T09:27:28.999Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "liubiskiu-dvaras": {
     "collectible": true,
@@ -117,13 +125,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/liubiskiu-dvaras.png",
-    "builtAt": "2026-08-09T17:45:02.078Z",
+    "builtAt": "2026-08-10T09:27:29.174Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "mediniu-skulpturu-aleja": {
     "collectible": true,
@@ -131,13 +140,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/mediniu-skulpturu-aleja.png",
-    "builtAt": "2026-08-09T17:45:02.249Z",
+    "builtAt": "2026-08-10T09:27:29.342Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "muziejus-metalo-fantazija": {
     "collectible": true,
@@ -145,13 +155,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/muziejus-metalo-fantazija.png",
-    "builtAt": "2026-08-09T17:45:02.414Z",
+    "builtAt": "2026-08-10T09:27:29.509Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "paminklas-vistyciui": {
     "collectible": true,
@@ -159,13 +170,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/paminklas-vistyciui.png",
-    "builtAt": "2026-08-09T17:45:02.575Z",
+    "builtAt": "2026-08-10T09:27:29.672Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "paminklas-vytautui-didziajam-vistytis": {
     "collectible": true,
@@ -173,13 +185,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/paminklas-vytautui-didziajam-vistytis.png",
-    "builtAt": "2026-08-09T17:45:02.740Z",
+    "builtAt": "2026-08-10T09:27:29.840Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "pavistycio-i-piliakalnis": {
     "collectible": true,
@@ -187,13 +200,14 @@
     "rarity": "epic",
     "color": "#e8a33d",
     "source": "assets/badges/raw/pavistycio-i-piliakalnis.png",
-    "builtAt": "2026-08-09T17:45:02.899Z",
+    "builtAt": "2026-08-10T09:27:29.997Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "pavistycio-ii-piliakalnis": {
     "collectible": true,
@@ -201,13 +215,14 @@
     "rarity": "epic",
     "color": "#e8a33d",
     "source": "assets/badges/raw/pavistycio-ii-piliakalnis.png",
-    "builtAt": "2026-08-09T17:45:03.061Z",
+    "builtAt": "2026-08-10T09:27:30.156Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "raganos-sluota": {
     "collectible": true,
@@ -215,13 +230,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/raganos-sluota.png",
-    "builtAt": "2026-08-09T17:45:03.354Z",
+    "builtAt": "2026-08-10T09:27:30.316Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "regykla-trys-ezerai": {
     "collectible": true,
@@ -229,13 +245,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/regykla-trys-ezerai.png",
-    "builtAt": "2026-08-09T17:45:03.519Z",
+    "builtAt": "2026-08-10T09:27:30.476Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "regykla-vaizdas-i-romintos-giria": {
     "collectible": true,
@@ -243,13 +260,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/regykla-vaizdas-i-romintos-giria.png",
-    "builtAt": "2026-08-09T17:45:03.680Z",
+    "builtAt": "2026-08-10T09:27:30.636Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "suopkalnis": {
     "collectible": true,
@@ -257,13 +275,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/suopkalnis.png",
-    "builtAt": "2026-08-09T17:45:04.113Z",
+    "builtAt": "2026-08-10T09:27:30.794Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "vistycio-apzvalgos-vieta": {
     "collectible": true,
@@ -271,13 +290,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/vistycio-apzvalgos-vieta.png",
-    "builtAt": "2026-08-09T17:45:04.542Z",
+    "builtAt": "2026-08-10T09:27:30.958Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "vistycio-evangeliku-liuteronu-baznycia": {
     "collectible": true,
@@ -285,13 +305,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/vistycio-evangeliku-liuteronu-baznycia.png",
-    "builtAt": "2026-08-09T17:45:04.699Z",
+    "builtAt": "2026-08-10T09:27:31.125Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "vistycio-holokausto-auku-memorialas": {
     "collectible": true,
@@ -299,13 +320,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/vistycio-holokausto-auku-memorialas.png",
-    "builtAt": "2026-08-09T17:45:04.857Z",
+    "builtAt": "2026-08-10T09:27:31.282Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "vistycio-lauko-ii-piliakalnis": {
     "collectible": true,
@@ -313,13 +335,14 @@
     "rarity": "epic",
     "color": "#e8a33d",
     "source": "assets/badges/raw/vistycio-lauko-ii-piliakalnis.png",
-    "builtAt": "2026-08-09T17:45:05.018Z",
+    "builtAt": "2026-08-10T09:27:31.440Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "vistycio-vejo-malunas": {
     "collectible": true,
@@ -327,13 +350,14 @@
     "rarity": "rare",
     "color": "#2d7fa8",
     "source": "assets/badges/raw/vistycio-vejo-malunas.png",
-    "builtAt": "2026-08-09T17:45:05.729Z",
+    "builtAt": "2026-08-10T09:27:31.763Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "vistycio-svc-trejybes-baznycia": {
     "collectible": true,
@@ -341,13 +365,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/vistycio-svc-trejybes-baznycia.png",
-    "builtAt": "2026-08-09T17:45:05.891Z",
+    "builtAt": "2026-08-10T09:27:31.922Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "silelio-atodanga": {
     "collectible": true,
@@ -355,13 +380,14 @@
     "rarity": "epic",
     "color": "#e8a33d",
     "source": "assets/badges/raw/silelio-atodanga.png",
-    "builtAt": "2026-08-09T17:45:06.186Z",
+    "builtAt": "2026-08-10T09:27:32.080Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "silelio-mazasis-pazintinis-takas": {
     "collectible": true,
@@ -369,13 +395,14 @@
     "rarity": "common",
     "color": "#2e6b4f",
     "source": "assets/badges/raw/silelio-mazasis-pazintinis-takas.png",
-    "builtAt": "2026-08-09T17:45:06.352Z",
+    "builtAt": "2026-08-10T09:27:32.240Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "sventas-vistycio-saltinis": {
     "collectible": true,
@@ -383,13 +410,14 @@
     "rarity": "epic",
     "color": "#e8a33d",
     "source": "assets/badges/raw/sventas-vistycio-saltinis.png",
-    "builtAt": "2026-08-09T17:45:06.639Z",
+    "builtAt": "2026-08-10T09:27:32.399Z",
     "sizes": [
       512,
       256,
       128
     ],
-    "locked": true
+    "locked": true,
+    "lockedBrightness": 1.25
   },
   "kempingas-pusele": {
     "collectible": false,

@@ -1,0 +1,85 @@
+{
+  "app.title": "Vištytis",
+  "app.tagline": "Vāc novada nozīmītes",
+
+  "common.loading": "Notiek ielāde…",
+  "common.close": "Aizvērt",
+  "common.search": "Meklēt vietu, ciemu vai tēmu…",
+  "common.retry": "Mēģināt vēlreiz",
+  "common.error": "Neizdevās ielādēt datus.",
+
+  "nav.places": "Vietas",
+  "nav.collection": "Kolekcija",
+  "nav.language": "Valoda",
+  "nav.locate": "Mana atrašanās vieta",
+  "places.visible": "Rādītās vietas: {count}",
+  "places.map": "Karte",
+  "places.list": "Saraksts",
+  "places.refreshDistances": "Atjaunināt attālumus",
+
+  "filters.all": "Visas",
+  "filters.services": "Pakalpojumi",
+
+  "category.heritage": "Kultūras mantojums",
+  "category.nature": "Daba",
+  "category.viewpoints": "Skatu vietas",
+  "category.trails": "Takas",
+  "category.accommodation": "Naktsmītnes un atpūta",
+  "category.services": "Apmeklētāju pakalpojumi",
+
+  "rarity.common": "Bieža nozīmīte",
+  "rarity.rare": "Reta nozīmīte",
+  "rarity.epic": "Īpaša nozīmīte",
+
+  "place.collect": "Paņemt nozīmīti",
+  "place.collected": "Nozīmīte jau ir tava",
+  "place.tooFar": "Pārāk tālu: {distance}",
+  "place.navigate": "Kā nokļūt",
+  "place.open": "Vairāk informācijas",
+  "place.share": "Dalīties",
+  "place.linkCopied": "Saite nokopēta",
+  "place.address": "Adrese",
+  "place.location": "Atrašanās vieta",
+  "place.topics": "Tēmas",
+  "place.coordinates": "Koordinātas",
+  "place.points": "{points} p.",
+  "place.service": "Pakalpojumu vieta — nozīmītes šeit nav",
+  "place.locked": "Vēl nav paņemta",
+  "place.lockedHint": "Pienāc tuvāk par {radius} m un paņem nozīmīti.",
+  "place.distanceAway": "{distance} attālumā",
+
+  "collect.success": "Nozīmīte ir tava: {name}",
+  "collect.badgeUnlocked": "Nozīmīte atslēgta!",
+  "collect.celebrationHint": "Tā ir pievienota tavai kolekcijai.",
+  "collect.continue": "Turpināt",
+  "collect.shareBadge": "Vištytī savācu nozīmīti “{name}”!",
+  "collect.setCompleted": "Kopa pabeigta: {name}",
+  "collect.lowAccuracy": "Atrašanās vietas precizitāte ir pārāk zema ({accuracy} m). Uzgaidi dažas sekundes.",
+  "collect.needLocation": "Ieslēdz atrašanās vietas noteikšanu, lai vāktu nozīmītes.",
+  "collect.locationDenied": "Piekļuve atrašanās vietai liegta. Karte darbojas, bet nozīmītes vākt nevarēsi.",
+
+  "promo.label": "Sponsorēta vieta",
+  "promo.book": "Rezervēt",
+  "promo.more": "Uzzināt vairāk",
+
+  "progress.title": "Kolekcija",
+  "progress.of": "{collected} no {total}",
+  "progress.level": "Līmenis {level}",
+  "progress.xp": "{xp} p.",
+  "progress.sets": "Kopas",
+  "progress.empty": "Vēl nav nevienas nozīmītes. Sāc ar tuvāko vietu kartē.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Pilskalnu pētnieks",
+  "sets.boulders": "Akmeņu mednieks",
+  "sets.silelis-trail": "Šileļa taka",
+  "sets.town": "Vištytis miestiņš",
+  "sets.viewpoints": "Skatu vietas",
+
+  "privacy.note": "Tava atrašanās vieta tiek apstrādāta tikai šajā ierīcē un nekur netiek sūtīta.",
+  "privacy.link": "Privātums",
+
+  "empty.noResults": "Pēc izvēlētajiem filtriem vietas nav atrastas.",
+
+  "map.attribution": "Kartes pamatne: OpenStreetMap un CARTO"
+}

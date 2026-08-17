@@ -6,6 +6,10 @@
     "orientation": "portrait",
     "scheme": "vistytis",
     "userInterfaceStyle": "light",
+    "icon": "./assets/branding/vistytis-icon.png",
+    "splash": {
+      "backgroundColor": "#de2119"
+    },
     "plugins": [
       [
         "expo-location",
@@ -13,12 +17,21 @@
           "locationWhenInUsePermission": "Vištyčio aplikacijai reikia vietos leidimo, kad galėtumėte rasti artimiausias vietas ir rinkti ženklelius."
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      [
+        "expo-audio",
+        {
+          "recordAudioAndroid": false,
+          "enableBackgroundPlayback": false
+        }
+      ],
+      "expo-sharing"
     ],
     "android": {
       "package": "com.vistytis.app",
       "adaptiveIcon": {
-        "backgroundColor": "#1e4d49"
+        "foregroundImage": "./assets/branding/vistytis-icon-foreground.png",
+        "backgroundColor": "#de2119"
       }
     },
     "ios": {

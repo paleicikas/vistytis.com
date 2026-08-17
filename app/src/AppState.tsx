@@ -25,7 +25,16 @@ import type {
 import { readCollection, writeCollection } from "./storage";
 
 const LOCALE_STORAGE_KEY = "vistytis.locale.v1";
-const supportedLocales: Locale[] = ["lt", "en", "pl", "de"];
+const supportedLocales: Locale[] = [
+  "lt",
+  "en",
+  "pl",
+  "de",
+  "lv",
+  "et",
+  "fr",
+  "uk",
+];
 
 type AppContextValue = {
   locale: Locale;

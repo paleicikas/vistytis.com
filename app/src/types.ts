@@ -1,4 +1,4 @@
-export type Locale = "lt" | "en" | "pl" | "de";
+export type Locale = "lt" | "en" | "pl" | "de" | "lv" | "et" | "fr" | "uk";
 
 export type Category =
   | "Gamta"
@@ -10,8 +10,10 @@ export type Category =
   | string;
 
 export type LocalizedPlaceText = {
+  name: string;
   description: string;
   text: string;
+  notice?: string;
 };
 
 export type Place = {
@@ -22,6 +24,7 @@ export type Place = {
   topics: string[];
   description: string;
   text: string;
+  notice?: string;
   address: string | null;
   city: string | null;
   municipality: string | null;

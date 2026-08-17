@@ -1,7 +1,11 @@
 import de from "../assets/data/i18n/de.json";
 import en from "../assets/data/i18n/en.json";
+import et from "../assets/data/i18n/et.json";
+import fr from "../assets/data/i18n/fr.json";
 import lt from "../assets/data/i18n/lt.json";
+import lv from "../assets/data/i18n/lv.json";
 import pl from "../assets/data/i18n/pl.json";
+import uk from "../assets/data/i18n/uk.json";
 import type { Locale, Place } from "./types";
 
 const translations: Record<Locale, Record<string, string>> = {
@@ -9,6 +13,10 @@ const translations: Record<Locale, Record<string, string>> = {
   en,
   pl,
   de,
+  lv,
+  et,
+  fr,
+  uk,
 };
 
 export const localeLabels: Record<Locale, string> = {
@@ -16,6 +24,10 @@ export const localeLabels: Record<Locale, string> = {
   en: "EN",
   pl: "PL",
   de: "DE",
+  lv: "LV",
+  et: "ET",
+  fr: "FR",
+  uk: "UK",
 };
 
 export function translate(
@@ -34,9 +46,10 @@ export function translate(
 export function localizePlace(place: Place, locale: Locale) {
   const localized = locale === "lt" ? undefined : place.i18n?.[locale];
   return {
-    name: place.name,
+    name: localized?.name ?? place.name,
     description: localized?.description ?? place.description,
     text: localized?.text ?? place.text,
+    notice: localized?.notice ?? place.notice,
   };
 }
 

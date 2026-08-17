@@ -1,0 +1,85 @@
+{
+  "app.title": "Vištytis",
+  "app.tagline": "Kogu piirkonna märke",
+
+  "common.loading": "Laadimine…",
+  "common.close": "Sulge",
+  "common.search": "Otsi kohta, küla või teemat…",
+  "common.retry": "Proovi uuesti",
+  "common.error": "Andmeid ei õnnestunud laadida.",
+
+  "nav.places": "Kohad",
+  "nav.collection": "Kogu",
+  "nav.language": "Keel",
+  "nav.locate": "Minu asukoht",
+  "places.visible": "Näidatud kohti: {count}",
+  "places.map": "Kaart",
+  "places.list": "Loend",
+  "places.refreshDistances": "Uuenda vahemaid",
+
+  "filters.all": "Kõik",
+  "filters.services": "Teenused",
+
+  "category.heritage": "Kultuuripärand",
+  "category.nature": "Loodus",
+  "category.viewpoints": "Vaatekohad",
+  "category.trails": "Matkarajad",
+  "category.accommodation": "Ööbimine ja puhkus",
+  "category.services": "Külastajateenused",
+
+  "rarity.common": "Tavaline märk",
+  "rarity.rare": "Haruldane märk",
+  "rarity.epic": "Eriline märk",
+
+  "place.collect": "Võta märk",
+  "place.collected": "Märk on juba sinu",
+  "place.tooFar": "Liiga kaugel: {distance}",
+  "place.navigate": "Kuidas kohale jõuda",
+  "place.open": "Rohkem teavet",
+  "place.share": "Jaga",
+  "place.linkCopied": "Link kopeeritud",
+  "place.address": "Aadress",
+  "place.location": "Asukoht",
+  "place.topics": "Teemad",
+  "place.coordinates": "Koordinaadid",
+  "place.points": "{points} p",
+  "place.service": "Teeninduskoht — siin märki ei ole",
+  "place.locked": "Veel kogumata",
+  "place.lockedHint": "Tule lähemale kui {radius} m ja võta märk.",
+  "place.distanceAway": "{distance} kaugusel",
+
+  "collect.success": "Märk on sinu: {name}",
+  "collect.badgeUnlocked": "Märk avatud!",
+  "collect.celebrationHint": "See lisati sinu kogusse.",
+  "collect.continue": "Edasi",
+  "collect.shareBadge": "Sain Vištytises märgi „{name}“!",
+  "collect.setCompleted": "Kogum on täis: {name}",
+  "collect.lowAccuracy": "Asukoha täpsus on liiga madal ({accuracy} m). Oota mõni sekund.",
+  "collect.needLocation": "Lülita asukoha tuvastamine sisse, et märke koguda.",
+  "collect.locationDenied": "Asukoha luba keelati. Kaart töötab, kuid märke koguda ei saa.",
+
+  "promo.label": "Sponsoreeritud koht",
+  "promo.book": "Broneeri",
+  "promo.more": "Loe rohkem",
+
+  "progress.title": "Kogu",
+  "progress.of": "{collected} / {total}",
+  "progress.level": "Tase {level}",
+  "progress.xp": "{xp} p",
+  "progress.sets": "Kogumid",
+  "progress.empty": "Ühtegi märki veel ei ole. Alusta kaardil lähimast kohast.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Linnamägede uurija",
+  "sets.boulders": "Rändrahnude kütt",
+  "sets.silelis-trail": "Šilelise rada",
+  "sets.town": "Vištytise alevik",
+  "sets.viewpoints": "Vaatekohad",
+
+  "privacy.note": "Sinu asukohta töödeldakse ainult selles seadmes ja seda ei saadeta kuhugi.",
+  "privacy.link": "Privaatsus",
+
+  "empty.noResults": "Valitud filtritega kohti ei leitud.",
+
+  "map.attribution": "Kaardi alus: OpenStreetMap ja CARTO"
+}

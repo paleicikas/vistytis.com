@@ -20,6 +20,7 @@ const OUTPUT_SIZES = [512, 256, 128];
 const MASTER_SIZE = 1024;
 const RING_WIDTH = 56;
 const INK = "#2a2018";
+const LOCKED_BRIGHTNESS = 1.25;
 
 const args = process.argv.slice(2);
 const onlyId = args.includes("--only") ? args[args.indexOf("--only") + 1] : null;
@@ -97,7 +98,9 @@ for (const place of selected) {
     existsSync(largestOutput) &&
     previous?.source === sourcePath &&
     previous?.color === color &&
-    previous?.collectible === Boolean(place.collectible)
+    previous?.collectible === Boolean(place.collectible) &&
+    (!place.collectible ||
+      previous?.lockedBrightness === LOCKED_BRIGHTNESS)
   ) {
     skipped += 1;
     continue;
@@ -125,7 +128,7 @@ for (const place of selected) {
   if (place.collectible) {
     await sharp(master)
       .grayscale()
-      .modulate({ brightness: 0.55 })
+      .modulate({ brightness: LOCKED_BRIGHTNESS })
       .resize(256, 256)
       .png({ compressionLevel: 9 })
       .toFile(`assets/badges/out/${place.id}-locked-256.png`);
@@ -140,6 +143,7 @@ for (const place of selected) {
     builtAt: new Date().toISOString(),
     sizes: OUTPUT_SIZES,
     locked: place.collectible,
+    lockedBrightness: place.collectible ? LOCKED_BRIGHTNESS : null,
   };
 
   built += 1;

@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -18,6 +18,7 @@ import { categories, places } from "../data";
 import { categoryLabel, localizePlace, translate } from "../i18n";
 import { categoryColors, colors, spacing } from "../theme";
 import { LanguagePicker } from "../components/LanguagePicker";
+import { BrandMark } from "../components/BrandMark";
 import { PlaceCard } from "../components/PlaceCard";
 import { PlaceMap, type PlaceMapRef } from "../components/PlaceMap";
 import type { Place } from "../types";
@@ -32,8 +33,11 @@ function normalize(value: string) {
 
 type ViewMode = "map" | "list";
 
+const LOCATION_REFRESH_INTERVAL_MS = 10_000;
+
 export default function PlacesScreen() {
   const navigation = useNavigation<AppNavigationProp>();
+  const isFocused = useIsFocused();
   const {
     locale,
     setLocale,
@@ -47,9 +51,18 @@ export default function PlacesScreen() {
     isCollected,
   } = useApp();
   const mapRef = useRef<PlaceMapRef>(null);
+  const searchInputRef = useRef<TextInput>(null);
+  const locationRequestInFlight = useRef(false);
   const [query, setQuery] = useState("");
   const [activeCategories, setActiveCategories] = useState<string[]>(categories);
   const [viewMode, setViewMode] = useState<ViewMode>("map");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    if (isSearchOpen) {
+      searchInputRef.current?.focus();
+    }
+  }, [isSearchOpen]);
 
   const visiblePlaces = useMemo(() => {
     const searchTerm = normalize(query.trim());
@@ -63,7 +76,7 @@ export default function PlacesScreen() {
       const content = localizePlace(place, locale);
       return normalize(
         [
-          place.name,
+          content.name,
           content.description,
           content.text,
           place.city,
@@ -77,6 +90,26 @@ export default function PlacesScreen() {
       ).includes(searchTerm);
     });
   }, [activeCategories, locale, query]);
+
+  const listPlaces = useMemo(
+    () =>
+      visiblePlaces
+        .map((place, index) => ({
+          distanceM: distanceFor(place),
+          index,
+          place,
+        }))
+        .sort((left, right) => {
+          if (left.distanceM === null && right.distanceM === null) {
+            return left.index - right.index;
+          }
+          if (left.distanceM === null) return 1;
+          if (right.distanceM === null) return -1;
+          return left.distanceM - right.distanceM || left.index - right.index;
+        })
+        .map(({ place }) => place),
+    [distanceFor, visiblePlaces]
+  );
 
   const allCategoriesActive = activeCategories.length === categories.length;
 
@@ -94,6 +127,11 @@ export default function PlacesScreen() {
 
   function openPlace(place: Place) {
     navigation.navigate("PlaceDetails", { id: place.id });
+  }
+
+  function closeSearch() {
+    setQuery("");
+    setIsSearchOpen(false);
   }
 
   const focusPlaces = useCallback((nextPlaces: Place[]) => {
@@ -129,6 +167,28 @@ export default function PlacesScreen() {
     }
   }, [focusPlaces, viewMode, visiblePlaces]);
 
+  const refreshLocation = useCallback(async () => {
+    if (locationRequestInFlight.current) return;
+
+    locationRequestInFlight.current = true;
+    try {
+      await requestLocation();
+    } finally {
+      locationRequestInFlight.current = false;
+    }
+  }, [requestLocation]);
+
+  useEffect(() => {
+    if (!isFocused || viewMode !== "list") return;
+
+    void refreshLocation();
+    const interval = setInterval(() => {
+      void refreshLocation();
+    }, LOCATION_REFRESH_INTERVAL_MS);
+
+    return () => clearInterval(interval);
+  }, [isFocused, refreshLocation, viewMode]);
+
   function fitVisible() {
     focusPlaces(visiblePlaces);
   }
@@ -151,42 +211,31 @@ export default function PlacesScreen() {
   return (
     <SafeAreaView edges={["top", "left", "right"]} style={styles.safeArea}>
       <View style={styles.header}>
-        <View style={styles.heading}>
-          <Text style={styles.eyebrow}>{translate(locale, "app.tagline")}</Text>
-          <Text style={styles.title}>{translate(locale, "app.title")}</Text>
-          <Text style={styles.subtitle}>
-            {summary.collected}/{summary.total} · {translate(locale, "progress.xp", { xp: summary.points })}
-          </Text>
+        <View style={styles.headingGroup}>
+          <BrandMark />
+          <View style={styles.heading}>
+            <Text style={styles.title}>{translate(locale, "app.title")}</Text>
+            <Text style={styles.eyebrow}>{translate(locale, "app.tagline")}</Text>
+          </View>
         </View>
         <View style={styles.headerActions}>
-          <LanguagePicker value={locale} onChange={setLocale} />
+          <View style={styles.headerActionRow}>
+            <LanguagePicker value={locale} onChange={setLocale} />
+          </View>
           <Pressable
             accessibilityLabel={translate(locale, "nav.collection")}
             onPress={() => navigation.navigate("Collection")}
             style={styles.collectionButton}
           >
-            <Ionicons color={colors.green} name="ribbon-outline" size={19} />
-            <Text style={styles.collectionCount}>{summary.collected}</Text>
+            <Ionicons color={colors.primary} name="ribbon-outline" size={19} />
+            <View style={styles.collectionCopy}>
+              <Text numberOfLines={1} style={styles.collectionCount}>
+                {summary.collected}/{summary.total} ·{" "}
+                {translate(locale, "progress.xp", { xp: summary.points })}
+              </Text>
+            </View>
           </Pressable>
         </View>
-      </View>
-
-      <View style={styles.searchBox}>
-        <Ionicons color={colors.green} name="search-outline" size={19} />
-        <TextInput
-          accessibilityLabel={translate(locale, "common.search")}
-          autoCapitalize="none"
-          onChangeText={setQuery}
-          placeholder={translate(locale, "common.search")}
-          placeholderTextColor="#8a9690"
-          style={styles.searchInput}
-          value={query}
-        />
-        {query ? (
-          <Pressable accessibilityLabel={translate(locale, "common.close")} onPress={() => setQuery("")}>
-            <Ionicons color={colors.muted} name="close-circle" size={19} />
-          </Pressable>
-        ) : null}
       </View>
 
       <View accessibilityRole="tablist" style={styles.viewSwitcher}>
@@ -198,7 +247,7 @@ export default function PlacesScreen() {
           style={[styles.viewTab, viewMode === "map" && styles.viewTabActive]}
         >
           <Ionicons
-            color={viewMode === "map" ? colors.white : colors.green}
+            color={viewMode === "map" ? colors.white : colors.primary}
             name="map-outline"
             size={18}
           />
@@ -214,7 +263,7 @@ export default function PlacesScreen() {
           style={[styles.viewTab, viewMode === "list" && styles.viewTabActive]}
         >
           <Ionicons
-            color={viewMode === "list" ? colors.white : colors.green}
+            color={viewMode === "list" ? colors.white : colors.primary}
             name="list-outline"
             size={18}
           />
@@ -222,7 +271,46 @@ export default function PlacesScreen() {
             {translate(locale, "places.list")}
           </Text>
         </Pressable>
+        <Pressable
+          accessibilityLabel={translate(locale, "common.search")}
+          accessibilityRole="button"
+          onPress={() => setIsSearchOpen(true)}
+          style={[styles.searchToggle, isSearchOpen && styles.searchToggleActive]}
+        >
+          <Ionicons color={colors.primary} name="search-outline" size={19} />
+        </Pressable>
       </View>
+
+      {isSearchOpen ? (
+        <View style={styles.searchBox}>
+          <Ionicons color={colors.primary} name="search-outline" size={19} />
+          <TextInput
+            ref={searchInputRef}
+            accessibilityLabel={translate(locale, "common.search")}
+            autoCapitalize="none"
+            onChangeText={setQuery}
+            placeholder={translate(locale, "common.search")}
+            placeholderTextColor={colors.muted}
+            style={styles.searchInput}
+            value={query}
+          />
+          {query ? (
+            <Pressable
+              accessibilityLabel={translate(locale, "common.search")}
+              onPress={() => setQuery("")}
+            >
+              <Ionicons color={colors.muted} name="close-circle" size={19} />
+            </Pressable>
+          ) : null}
+          <Pressable
+            accessibilityLabel={translate(locale, "common.close")}
+            accessibilityRole="button"
+            onPress={closeSearch}
+          >
+            <Ionicons color={colors.muted} name="close" size={20} />
+          </Pressable>
+        </View>
+      ) : null}
 
       {locationError ? (
         <View style={styles.locationNotice}>
@@ -239,6 +327,7 @@ export default function PlacesScreen() {
         {viewMode === "map" ? (
           <View style={styles.mapCard}>
             <PlaceMap
+              activeCategories={activeCategories}
               ref={mapRef}
               locale={locale}
               onPlacePress={openPlace}
@@ -259,9 +348,9 @@ export default function PlacesScreen() {
                 style={styles.mapAction}
               >
                 {isLocating ? (
-                  <ActivityIndicator color={colors.green} size="small" />
+                  <ActivityIndicator color={colors.primary} size="small" />
                 ) : (
-                  <Ionicons color={colors.green} name="locate-outline" size={20} />
+                  <Ionicons color={colors.primary} name="locate-outline" size={20} />
                 )}
               </Pressable>
               <Pressable
@@ -270,14 +359,18 @@ export default function PlacesScreen() {
                 onPress={fitVisible}
                 style={[styles.mapAction, !visiblePlaces.length && styles.mapActionDisabled]}
               >
-                <Ionicons color={colors.green} name="scan-outline" size={20} />
+                <Ionicons color={colors.primary} name="scan-outline" size={20} />
               </Pressable>
             </View>
           </View>
         ) : (
           <FlatList
             contentContainerStyle={[styles.list, styles.listWithFilters]}
-            data={visiblePlaces}
+            data={listPlaces}
+            extraData={{
+              isLocating,
+              userLocation,
+            }}
             keyExtractor={(place) => place.id}
             ListEmptyComponent={
               <View style={styles.empty}>
@@ -323,7 +416,7 @@ export default function PlacesScreen() {
                   <View
                     style={[
                       styles.filterDot,
-                      { backgroundColor: categoryColors[category] ?? colors.green },
+                      { backgroundColor: categoryColors[category] ?? colors.primary },
                     ]}
                   />
                   <Text style={[styles.filterText, active && styles.filterTextActive]}>
@@ -339,7 +432,7 @@ export default function PlacesScreen() {
             <Text style={styles.resultBadgeText}>
               {translate(locale, "places.visible", { count: visiblePlaces.length })}
             </Text>
-            {!isHydrated ? <ActivityIndicator color={colors.green} size="small" /> : null}
+            {!isHydrated ? <ActivityIndicator color={colors.primary} size="small" /> : null}
           </View>
         </View>
       </View>
@@ -357,6 +450,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "space-between",
     gap: spacing.sm,
+    zIndex: 20,
     paddingHorizontal: spacing.md,
     paddingTop: spacing.sm,
     paddingBottom: spacing.sm,
@@ -364,8 +458,15 @@ const styles = StyleSheet.create({
   heading: {
     flex: 1,
   },
+  headingGroup: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: spacing.sm,
+  },
   eyebrow: {
-    color: colors.green,
+    marginTop: 2,
+    color: colors.primary,
     fontSize: 10,
     fontWeight: "900",
     letterSpacing: 1.1,
@@ -378,29 +479,45 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "800",
   },
-  subtitle: {
-    marginTop: 2,
-    color: colors.muted,
-    fontSize: 12,
-    fontWeight: "700",
-  },
   headerActions: {
     alignItems: "flex-end",
+    gap: 8,
+  },
+  headerActionRow: {
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   collectionButton: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 4,
+    gap: 7,
     paddingHorizontal: 10,
-    paddingVertical: 7,
+    paddingVertical: 6,
     borderRadius: 10,
-    backgroundColor: colors.greenLight,
+    backgroundColor: colors.primaryLight,
+  },
+  collectionCopy: {
+    flexShrink: 1,
   },
   collectionCount: {
-    color: colors.greenDark,
-    fontSize: 12,
+    color: colors.primaryDark,
+    fontSize: 11,
     fontWeight: "900",
+  },
+  searchToggle: {
+    width: 42,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.line,
+  },
+  searchToggleActive: {
+    backgroundColor: colors.primaryLight,
+    borderColor: "rgba(222, 33, 25, 0.32)",
   },
   searchBox: {
     flexDirection: "row",
@@ -441,10 +558,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   viewTabActive: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.primary,
   },
   viewTabText: {
-    color: colors.greenDark,
+    color: colors.primaryDark,
     fontSize: 12,
     fontWeight: "900",
   },
@@ -458,9 +575,8 @@ const styles = StyleSheet.create({
   },
   mapCard: {
     flex: 1,
-    marginHorizontal: spacing.md,
     overflow: "hidden",
-    borderRadius: 18,
+    borderRadius: 0,
     backgroundColor: colors.map,
     position: "relative",
   },
@@ -534,13 +650,13 @@ const styles = StyleSheet.create({
   },
   calloutCategory: {
     marginTop: 3,
-    color: colors.green,
+    color: colors.primary,
     fontSize: 10,
     fontWeight: "800",
   },
   calloutAction: {
     marginTop: 7,
-    color: colors.greenDark,
+    color: colors.primaryDark,
     fontSize: 11,
     fontWeight: "800",
   },
@@ -584,6 +700,7 @@ const styles = StyleSheet.create({
   },
   listView: {
     flex: 1,
+    backgroundColor: colors.surfaceMuted,
   },
   listWithFilters: {
     paddingTop: 94,
@@ -624,12 +741,12 @@ const styles = StyleSheet.create({
     borderColor: colors.line,
   },
   filterActive: {
-    backgroundColor: colors.green,
-    borderColor: colors.green,
+    backgroundColor: colors.primaryLight,
+    borderColor: colors.primary,
   },
   filterDot: {
-    width: 7,
-    height: 7,
+    width: 8,
+    height: 8,
     borderRadius: 4,
   },
   filterText: {
@@ -638,11 +755,12 @@ const styles = StyleSheet.create({
     fontWeight: "800",
   },
   filterTextActive: {
-    color: colors.white,
+    color: colors.primaryDark,
   },
   list: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.xl,
+    backgroundColor: colors.surfaceMuted,
   },
   empty: {
     alignItems: "center",

@@ -6,8 +6,8 @@ import MapView, {
   type Region,
 } from "react-native-maps";
 import { Platform, StyleSheet, Text, View } from "react-native";
-import { categoryLabel } from "../i18n";
-import { categoryColors, colors } from "../theme";
+import { categoryLabel, localizePlace, translate } from "../i18n";
+import { categoryColors, colors, mapCategory } from "../theme";
 import type { Locale, Place, UserLocation } from "../types";
 
 export type PlaceMapRef = {
@@ -21,12 +21,21 @@ export type PlaceMapRef = {
   animateToRegion: (region: Region, duration: number) => void;
 };
 
+export type PlaceMapRegion = {
+  latitude: number;
+  longitude: number;
+  latitudeDelta: number;
+  longitudeDelta: number;
+};
+
 type PlaceMapProps = {
+  activeCategories?: readonly string[];
   locale: Locale;
   mapRef?: React.Ref<PlaceMapRef>;
   onPlacePress: (place: Place) => void;
   userLocation: UserLocation | null;
   visiblePlaces: Place[];
+  initialRegion?: PlaceMapRegion;
 };
 
 const initialRegion: Region = {
@@ -37,7 +46,17 @@ const initialRegion: Region = {
 };
 
 export const PlaceMap = forwardRef<PlaceMapRef, Omit<PlaceMapProps, "mapRef">>(
-  function PlaceMap({ locale, onPlacePress, userLocation, visiblePlaces }, ref) {
+  function PlaceMap(
+    {
+      activeCategories,
+      initialRegion: requestedRegion,
+      locale,
+      onPlacePress,
+      userLocation,
+      visiblePlaces,
+    },
+    ref
+  ) {
     const nativeMapRef = useRef<MapView>(null);
 
     useImperativeHandle(ref, () => ({
@@ -52,33 +71,40 @@ export const PlaceMap = forwardRef<PlaceMapRef, Omit<PlaceMapProps, "mapRef">>(
     return (
       <MapView
         ref={nativeMapRef}
-        initialRegion={initialRegion}
+        initialRegion={requestedRegion ?? initialRegion}
         provider={Platform.OS === "android" ? PROVIDER_GOOGLE : undefined}
         showsMyLocationButton={false}
         showsUserLocation={Boolean(userLocation)}
         style={styles.map}
       >
-        {visiblePlaces.map((place) => (
-          <Marker
-            key={place.id}
-            coordinate={{
-              latitude: place.coordinates[1],
-              longitude: place.coordinates[0],
-            }}
-            pinColor={categoryColors[place.categories[0]] ?? colors.green}
-            title={place.name}
-          >
-            <Callout onPress={() => onPlacePress(place)}>
-              <View style={styles.callout}>
-                <Text style={styles.calloutTitle}>{place.name}</Text>
-                <Text style={styles.calloutCategory}>
-                  {categoryLabel(locale, place.categories[0] ?? "")}
-                </Text>
-                <Text style={styles.calloutAction}>Atverti →</Text>
-              </View>
-            </Callout>
-          </Marker>
-        ))}
+        {visiblePlaces.map((place) => {
+          const category = mapCategory(place.categories, activeCategories);
+          const content = localizePlace(place, locale);
+
+          return (
+            <Marker
+              key={place.id}
+              coordinate={{
+                latitude: place.coordinates[1],
+                longitude: place.coordinates[0],
+              }}
+              pinColor={categoryColors[category] ?? colors.primary}
+              title={content.name}
+            >
+              <Callout onPress={() => onPlacePress(place)}>
+                <View style={styles.callout}>
+                  <Text style={styles.calloutTitle}>{content.name}</Text>
+                  <Text style={styles.calloutCategory}>
+                    {categoryLabel(locale, category)}
+                  </Text>
+                  <Text style={styles.calloutAction}>
+                    {translate(locale, "place.open")} →
+                  </Text>
+                </View>
+              </Callout>
+            </Marker>
+          );
+        })}
       </MapView>
     );
   }
@@ -99,13 +125,13 @@ const styles = StyleSheet.create({
   },
   calloutCategory: {
     marginTop: 3,
-    color: colors.green,
+    color: colors.primary,
     fontSize: 10,
     fontWeight: "800",
   },
   calloutAction: {
     marginTop: 7,
-    color: colors.greenDark,
+    color: colors.primaryDark,
     fontSize: 11,
     fontWeight: "800",
   },

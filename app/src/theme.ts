@@ -1,25 +1,45 @@
 export const colors = {
-  ink: "#1d3030",
-  muted: "#6e7c78",
-  paper: "#faf8f2",
-  paperSoft: "#f1f4ef",
-  green: "#2f6861",
-  greenDark: "#1e4d49",
-  greenLight: "#dcebe5",
-  line: "rgba(29, 48, 48, 0.12)",
-  map: "#d7e2dc",
+  ink: "#2b2321",
+  muted: "#786e6a",
+  paper: "#fcfaf7",
+  paperSoft: "#f6efec",
+  primary: "#de2119",
+  primaryDark: "#9e1b17",
+  primaryLight: "#f8dedb",
+  secondary: "#e8a33d",
+  secondaryDark: "#8a5a1f",
+  secondaryLight: "#fff0d6",
+  line: "rgba(74, 37, 32, 0.14)",
+  map: "#e2e5df",
+  surfaceMuted: "#f0f1ef",
   white: "#ffffff",
-  danger: "#a94b42",
+  danger: "#b33b31",
 };
 
 export const categoryColors: Record<string, string> = {
-  "Kultūros paveldas": "#c5372c",
+  "Kultūros paveldas": "#de2119",
   Gamta: "#2e6b4f",
   "Apžvalgos vietos": "#2d7fa8",
-  Takai: "#e8a33d",
+  Takai: colors.secondary,
   "Poilsis ir nakvynė": "#7a4b7e",
   "Lankytojų paslaugos": "#8a5a3b",
 };
+
+export function mapCategory(
+  categories: readonly string[],
+  activeCategories?: readonly string[]
+) {
+  if (
+    activeCategories?.length === 1 &&
+    categories.includes(activeCategories[0] ?? "")
+  ) {
+    return activeCategories[0] ?? "";
+  }
+
+  return categories.includes("Apžvalgos vietos")
+    ? "Apžvalgos vietos"
+    : categories[0] ?? "";
+}
 
 export const spacing = {
   xs: 6,

@@ -1,10 +1,13 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useAudioPlayer } from "expo-audio";
 import { useNavigation, useRoute, type RouteProp } from "@react-navigation/native";
 import * as Linking from "expo-linking";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
+  Animated,
   Alert,
+  Image,
   Modal,
   Pressable,
   ScrollView,
@@ -15,6 +18,8 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useApp } from "../AppState";
+import { badgeAssets } from "../badges";
+import badgeCollectedSound from "../../assets/audio/badge-collected.mp3";
 import { getPlace } from "../data";
 import {
   formatDistance,
@@ -25,9 +30,11 @@ import {
 import { categoryLabel, localizePlace, translate } from "../i18n";
 import { categoryColors, colors, spacing } from "../theme";
 import { LanguagePicker } from "../components/LanguagePicker";
+import { PlaceMap } from "../components/PlaceMap";
 import type { RootNavigationProp, RootStackParamList } from "../navigation/types";
 
 export default function PlaceDetailsScreen() {
+  const collectionSound = useAudioPlayer(badgeCollectedSound);
   const navigation = useNavigation<RootNavigationProp>();
   const { id } = useRoute<RouteProp<RootStackParamList, "PlaceDetails">>().params;
   const place = getPlace(id);
@@ -45,6 +52,34 @@ export default function PlaceDetailsScreen() {
     distanceM: number;
     radiusM: number;
   } | null>(null);
+  const [isCollectionCelebrationVisible, setIsCollectionCelebrationVisible] =
+    useState(false);
+  const celebrationOpacity = useRef(new Animated.Value(0)).current;
+  const celebrationScale = useRef(new Animated.Value(0.86)).current;
+
+  useEffect(() => {
+    if (!isCollectionCelebrationVisible) return;
+
+    celebrationOpacity.setValue(0);
+    celebrationScale.setValue(0.86);
+    Animated.parallel([
+      Animated.timing(celebrationOpacity, {
+        toValue: 1,
+        duration: 180,
+        useNativeDriver: false,
+      }),
+      Animated.spring(celebrationScale, {
+        toValue: 1,
+        friction: 7,
+        tension: 70,
+        useNativeDriver: false,
+      }),
+    ]).start();
+  }, [
+    celebrationOpacity,
+    celebrationScale,
+    isCollectionCelebrationVisible,
+  ]);
 
   if (!place) {
     return (
@@ -65,7 +100,16 @@ export default function PlaceDetailsScreen() {
   const distanceM = distanceFor(place);
   const radiusM = placeRadius(place);
   const rarity = placeRarity(place);
+  const badgeSource = badgeAssets[place.id]?.[collected ? "unlocked" : "locked"];
+  const lockedBadgeSource = badgeAssets[place.id]?.locked;
+  const unlockedBadgeSource = badgeAssets[place.id]?.unlocked;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${place.coordinates[1]},${place.coordinates[0]}`;
+  const placeMapRegion = {
+    latitude: place.coordinates[1],
+    longitude: place.coordinates[0],
+    latitudeDelta: 0.018,
+    longitudeDelta: 0.024,
+  };
 
   async function collect() {
     let result = await collectPlace(selectedPlace);
@@ -75,10 +119,8 @@ export default function PlaceDetailsScreen() {
     }
 
     if (result.ok) {
-      Alert.alert(
-        translate(locale, "collect.success", { name: content.name }),
-        translate(locale, "place.points", { points: result.points })
-      );
+      collectionSound.play();
+      setIsCollectionCelebrationVisible(true);
       return;
     }
 
@@ -126,23 +168,27 @@ export default function PlaceDetailsScreen() {
           <LanguagePicker value={locale} onChange={setLocale} />
         </View>
 
-        <View
-          style={[
-            styles.heroIcon,
-            { backgroundColor: categoryColors[place.categories[0]] ?? colors.green },
-          ]}
-        >
-          <Ionicons
-            color={colors.white}
-            name={place.collectible ? "ribbon-outline" : "location-outline"}
-            size={39}
-          />
+        <View style={styles.heroRow}>
+          <View
+            style={[
+              styles.heroIcon,
+              { backgroundColor: categoryColors[place.categories[0]] ?? colors.primary },
+            ]}
+          >
+            <Ionicons
+              color={colors.white}
+              name={place.collectible ? "ribbon-outline" : "location-outline"}
+              size={39}
+            />
+          </View>
+          <View style={styles.heroCopy}>
+            <Text style={styles.eyebrow}>{translate(locale, "app.title")}</Text>
+            <Text style={styles.title}>{content.name}</Text>
+            <Text style={styles.category}>
+              {categoryLabel(locale, place.categories[0] ?? "")}
+            </Text>
+          </View>
         </View>
-        <Text style={styles.eyebrow}>{translate(locale, "app.title")}</Text>
-        <Text style={styles.title}>{content.name}</Text>
-        <Text style={styles.category}>
-          {categoryLabel(locale, place.categories[0] ?? "")}
-        </Text>
         <Text style={styles.description}>{content.description}</Text>
         <Text style={styles.body}>{content.text}</Text>
 
@@ -164,32 +210,35 @@ export default function PlaceDetailsScreen() {
             label={translate(locale, "place.topics")}
             value={place.topics.join(", ") || "–"}
           />
-          <MetaRow
-            icon="map-outline"
-            label={translate(locale, "place.coordinates")}
-            value={`${place.coordinates[1].toFixed(5)}, ${place.coordinates[0].toFixed(5)}`}
-          />
         </View>
 
         {place.collectible ? (
-          <View style={styles.collectionCard}>
+          <View style={[styles.collectionCard, collected && styles.collectionCardCollected]}>
             <View style={styles.collectionTop}>
-              <View>
-                <Text style={styles.collectionLabel}>
+              {badgeSource ? (
+                <Image
+                  accessibilityLabel={content.name}
+                  resizeMode="contain"
+                  source={badgeSource}
+                  style={styles.badgePreview}
+                />
+              ) : null}
+              <View style={styles.collectionInfo}>
+                <Text style={[styles.collectionLabel, collected && styles.collectedText]}>
                   {translate(locale, `rarity.${rarity}`)}
                 </Text>
-                <Text style={styles.collectionPoints}>
+                <Text style={[styles.collectionPoints, collected && styles.collectedText]}>
                   {translate(locale, "place.points", { points: placePoints(place) })}
                 </Text>
               </View>
               <Ionicons
-                color={collected ? colors.green : colors.muted}
+                color={collected ? colors.secondaryDark : colors.muted}
                 name={collected ? "checkmark-circle" : "lock-closed-outline"}
                 size={27}
               />
             </View>
             {distanceM !== null ? (
-              <Text style={styles.distance}>
+              <Text style={[styles.distance, collected && styles.distanceCollected]}>
                 {collected
                   ? translate(locale, "place.collected")
                   : translate(locale, "place.distanceAway", {
@@ -207,6 +256,7 @@ export default function PlaceDetailsScreen() {
               style={[
                 styles.primaryButton,
                 (collected || isLocating) && styles.disabledButton,
+                collected && styles.collectedButton,
               ]}
             >
               {isLocating ? (
@@ -230,16 +280,37 @@ export default function PlaceDetailsScreen() {
           </View>
         ) : (
           <View style={styles.serviceCard}>
-            <Ionicons color={colors.green} name="information-circle-outline" size={20} />
+            <Ionicons color={colors.primary} name="information-circle-outline" size={20} />
             <Text style={styles.serviceText}>
               {translate(locale, "place.service")}
             </Text>
           </View>
         )}
 
+        <View style={styles.locationCard}>
+          <View style={styles.locationMap}>
+            <PlaceMap
+              initialRegion={placeMapRegion}
+              locale={locale}
+              onPlacePress={() => undefined}
+              userLocation={null}
+              visiblePlaces={[place]}
+            />
+          </View>
+          <View style={styles.locationMapFooter}>
+            <Ionicons color={colors.primary} name="location-outline" size={18} />
+            <View style={styles.locationMapCopy}>
+              <Text style={styles.locationMapLabel}>
+                {translate(locale, "place.location")}
+              </Text>
+              <Text style={styles.locationMapTitle}>{content.name}</Text>
+            </View>
+          </View>
+        </View>
+
         <View style={styles.actions}>
           <Pressable onPress={() => void Linking.openURL(mapsUrl)} style={styles.secondaryButton}>
-            <Ionicons color={colors.greenDark} name="navigate-outline" size={18} />
+            <Ionicons color={colors.primaryDark} name="navigate-outline" size={18} />
             <Text style={styles.secondaryButtonText}>
               {translate(locale, "place.navigate")}
             </Text>
@@ -250,9 +321,9 @@ export default function PlaceDetailsScreen() {
             style={styles.secondaryButton}
           >
             {isSharing ? (
-              <ActivityIndicator color={colors.greenDark} size="small" />
+              <ActivityIndicator color={colors.primaryDark} size="small" />
             ) : (
-              <Ionicons color={colors.greenDark} name="share-social-outline" size={18} />
+              <Ionicons color={colors.primaryDark} name="share-social-outline" size={18} />
             )}
             <Text style={styles.secondaryButtonText}>
               {translate(locale, "place.share")}
@@ -260,12 +331,12 @@ export default function PlaceDetailsScreen() {
           </Pressable>
         </View>
 
-        <View style={styles.borderNote}>
-          <Ionicons color="#9b6c28" name="warning-outline" size={18} />
-          <Text style={styles.borderText}>
-            {translate(locale, "safety.borderZone")}
-          </Text>
-        </View>
+        {content.notice ? (
+          <View style={styles.notice}>
+            <Ionicons color="#9b6c28" name="warning-outline" size={18} />
+            <Text style={styles.noticeText}>{content.notice}</Text>
+          </View>
+        ) : null}
         </ScrollView>
       </SafeAreaView>
 
@@ -282,17 +353,19 @@ export default function PlaceDetailsScreen() {
             style={StyleSheet.absoluteFill}
           />
           <View style={styles.modalCard}>
-            <View
-              style={[
-                styles.modalBadge,
-                { backgroundColor: categoryColors[place.categories[0]] ?? colors.green },
-              ]}
-            >
-              <View style={styles.modalBadgeRing}>
-                <Ionicons color={colors.white} name="ribbon" size={42} />
-              </View>
+            <View style={styles.modalBadge}>
+              {lockedBadgeSource ? (
+                <Image
+                  accessibilityLabel={content.name}
+                  resizeMode="contain"
+                  source={lockedBadgeSource}
+                  style={styles.modalBadgeImage}
+                />
+              ) : (
+                <Ionicons color={colors.primary} name="ribbon" size={42} />
+              )}
               <View style={styles.modalBadgeLock}>
-                <Ionicons color={colors.greenDark} name="lock-closed" size={15} />
+                <Ionicons color={colors.primaryDark} name="lock-closed" size={15} />
               </View>
             </View>
             <Text style={styles.modalKicker}>{translate(locale, "place.locked")}</Text>
@@ -305,7 +378,7 @@ export default function PlaceDetailsScreen() {
             </Text>
             <Text style={styles.modalPlaceName}>{content.name}</Text>
             <View style={styles.modalHint}>
-              <Ionicons color={colors.green} name="walk-outline" size={20} />
+              <Ionicons color={colors.primary} name="walk-outline" size={20} />
               <Text style={styles.modalHintText}>
                 {tooFarDetails
                   ? translate(locale, "place.lockedHint", {
@@ -326,6 +399,68 @@ export default function PlaceDetailsScreen() {
           </View>
         </View>
       </Modal>
+
+      <Modal
+        animationType="fade"
+        onRequestClose={() => setIsCollectionCelebrationVisible(false)}
+        transparent
+        visible={isCollectionCelebrationVisible}
+      >
+        <View style={styles.celebrationBackdrop}>
+          <Pressable
+            accessibilityLabel={translate(locale, "common.close")}
+            onPress={() => setIsCollectionCelebrationVisible(false)}
+            style={StyleSheet.absoluteFill}
+          />
+          <Animated.View
+            style={[
+              styles.celebrationCard,
+              {
+                opacity: celebrationOpacity,
+                transform: [{ scale: celebrationScale }],
+              },
+            ]}
+          >
+            <View style={styles.celebrationSparkles}>
+              <Ionicons color={colors.secondary} name="sparkles-outline" size={25} />
+            </View>
+            <View style={styles.celebrationBadge}>
+              {unlockedBadgeSource ? (
+                <Image
+                  accessibilityLabel={content.name}
+                  resizeMode="contain"
+                  source={unlockedBadgeSource}
+                  style={styles.celebrationBadgeImage}
+                />
+              ) : (
+                <Ionicons color={colors.secondaryDark} name="ribbon" size={64} />
+              )}
+              <View style={styles.celebrationCheck}>
+                <Ionicons color={colors.white} name="checkmark" size={20} />
+              </View>
+            </View>
+            <Text style={styles.celebrationKicker}>
+              {translate(locale, "collect.badgeUnlocked")}
+            </Text>
+            <Text style={styles.celebrationTitle}>{content.name}</Text>
+            <Text style={styles.celebrationPoints}>
+              {translate(locale, "place.points", { points: placePoints(place) })}
+            </Text>
+            <Text style={styles.celebrationHint}>
+              {translate(locale, "collect.celebrationHint")}
+            </Text>
+            <Pressable
+              onPress={() => setIsCollectionCelebrationVisible(false)}
+              style={styles.celebrationButton}
+            >
+              <Ionicons color={colors.white} name="arrow-forward" size={18} />
+              <Text style={styles.celebrationButtonText}>
+                {translate(locale, "collect.continue")}
+              </Text>
+            </Pressable>
+          </Animated.View>
+        </View>
+      </Modal>
     </>
   );
 }
@@ -341,7 +476,7 @@ function MetaRow({
 }) {
   return (
     <View style={styles.metaRow}>
-      <Ionicons color={colors.green} name={icon} size={17} />
+      <Ionicons color={colors.primary} name={icon} size={17} />
       <Text style={styles.metaLabel}>{label}</Text>
       <Text style={styles.metaValue}>{value}</Text>
     </View>
@@ -361,7 +496,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    zIndex: 20,
     paddingVertical: spacing.sm,
+  },
+  heroRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: spacing.md,
+    marginTop: spacing.md,
   },
   backButton: {
     width: 40,
@@ -378,12 +520,14 @@ const styles = StyleSheet.create({
     height: 74,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: spacing.md,
     borderRadius: 24,
   },
+  heroCopy: {
+    flex: 1,
+    minWidth: 0,
+  },
   eyebrow: {
-    marginTop: spacing.lg,
-    color: colors.green,
+    color: colors.primary,
     fontSize: 10,
     fontWeight: "900",
     letterSpacing: 1,
@@ -399,7 +543,7 @@ const styles = StyleSheet.create({
   },
   category: {
     marginTop: 8,
-    color: colors.green,
+    color: colors.primary,
     fontSize: 11,
     fontWeight: "900",
     letterSpacing: 0.5,
@@ -448,30 +592,48 @@ const styles = StyleSheet.create({
     marginTop: spacing.md,
     padding: spacing.md,
     borderRadius: 17,
-    backgroundColor: colors.greenLight,
+    backgroundColor: colors.primaryLight,
+  },
+  collectionCardCollected: {
+    backgroundColor: colors.secondaryLight,
   },
   collectionTop: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    gap: spacing.sm,
+  },
+  badgePreview: {
+    width: 72,
+    height: 72,
+  },
+  collectionInfo: {
+    flex: 1,
   },
   collectionLabel: {
-    color: colors.greenDark,
+    color: colors.primaryDark,
     fontSize: 14,
     fontWeight: "900",
     textTransform: "uppercase",
   },
   collectionPoints: {
     marginTop: 3,
-    color: colors.green,
+    color: colors.primary,
     fontSize: 12,
     fontWeight: "800",
+  },
+  collectedText: {
+    color: colors.secondaryDark,
   },
   distance: {
     marginTop: spacing.sm,
     color: colors.muted,
     fontSize: 12,
     lineHeight: 18,
+  },
+  distanceCollected: {
+    color: colors.secondaryDark,
+    fontWeight: "800",
   },
   primaryButton: {
     flexDirection: "row",
@@ -481,10 +643,13 @@ const styles = StyleSheet.create({
     minHeight: 47,
     marginTop: spacing.md,
     borderRadius: 13,
-    backgroundColor: colors.green,
+    backgroundColor: colors.primary,
   },
   disabledButton: {
-    backgroundColor: "#8caaa2",
+    backgroundColor: "#d98b86",
+  },
+  collectedButton: {
+    backgroundColor: colors.secondaryDark,
   },
   primaryButtonText: {
     color: colors.white,
@@ -513,6 +678,39 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
   },
+  locationCard: {
+    marginTop: spacing.md,
+    overflow: "hidden",
+    borderRadius: 17,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.line,
+  },
+  locationMap: {
+    height: 220,
+    backgroundColor: colors.map,
+  },
+  locationMapFooter: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: spacing.sm,
+    padding: spacing.md,
+  },
+  locationMapCopy: {
+    flex: 1,
+  },
+  locationMapLabel: {
+    color: colors.muted,
+    fontSize: 11,
+    fontWeight: "800",
+    textTransform: "uppercase",
+  },
+  locationMapTitle: {
+    marginTop: 3,
+    color: colors.ink,
+    fontSize: 13,
+    fontWeight: "800",
+  },
   actions: {
     flexDirection: "row",
     gap: spacing.sm,
@@ -527,14 +725,14 @@ const styles = StyleSheet.create({
     minHeight: 44,
     paddingHorizontal: 8,
     borderRadius: 12,
-    backgroundColor: "#e8efeb",
+    backgroundColor: "#f4e2df",
   },
   secondaryButtonText: {
-    color: colors.greenDark,
+    color: colors.primaryDark,
     fontSize: 11,
     fontWeight: "900",
   },
-  borderNote: {
+  notice: {
     flexDirection: "row",
     alignItems: "flex-start",
     gap: 8,
@@ -543,7 +741,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: "#fff3dd",
   },
-  borderText: {
+  noticeText: {
     flex: 1,
     color: "#80602c",
     fontSize: 11,
@@ -560,7 +758,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: spacing.lg,
-    backgroundColor: "rgba(15, 35, 34, 0.58)",
+    backgroundColor: "rgba(49, 24, 22, 0.58)",
   },
   modalCard: {
     width: "100%",
@@ -580,20 +778,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 52,
+    backgroundColor: colors.paperSoft,
     shadowColor: "#000",
     shadowOpacity: 0.16,
     shadowRadius: 10,
     elevation: 5,
   },
-  modalBadgeRing: {
-    width: 78,
-    height: 78,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 39,
-    borderWidth: 2,
-    borderColor: "rgba(255,255,255,0.58)",
-    backgroundColor: "rgba(255,255,255,0.14)",
+  modalBadgeImage: {
+    width: "100%",
+    height: "100%",
   },
   modalBadgeLock: {
     position: "absolute",
@@ -612,7 +805,7 @@ const styles = StyleSheet.create({
   },
   modalKicker: {
     marginTop: spacing.md,
-    color: colors.green,
+    color: colors.primary,
     fontSize: 11,
     fontWeight: "900",
     letterSpacing: 1,
@@ -640,11 +833,11 @@ const styles = StyleSheet.create({
     marginTop: spacing.lg,
     padding: spacing.md,
     borderRadius: 15,
-    backgroundColor: colors.greenLight,
+    backgroundColor: colors.primaryLight,
   },
   modalHintText: {
     flex: 1,
-    color: colors.greenDark,
+    color: colors.primaryDark,
     fontSize: 12,
     lineHeight: 18,
     textAlign: "center",
@@ -658,9 +851,110 @@ const styles = StyleSheet.create({
     minHeight: 46,
     marginTop: spacing.md,
     borderRadius: 13,
-    backgroundColor: colors.green,
+    backgroundColor: colors.primary,
   },
   modalButtonText: {
+    color: colors.white,
+    fontSize: 13,
+    fontWeight: "900",
+  },
+  celebrationBackdrop: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: spacing.lg,
+    backgroundColor: "rgba(49, 24, 22, 0.68)",
+  },
+  celebrationCard: {
+    width: "100%",
+    maxWidth: 380,
+    alignItems: "center",
+    padding: spacing.lg,
+    paddingTop: spacing.xl,
+    borderRadius: 28,
+    backgroundColor: colors.paper,
+    shadowColor: "#000",
+    shadowOpacity: 0.24,
+    shadowRadius: 28,
+    elevation: 14,
+  },
+  celebrationSparkles: {
+    position: "absolute",
+    top: 18,
+    right: 22,
+  },
+  celebrationBadge: {
+    width: 172,
+    height: 172,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 86,
+    backgroundColor: colors.secondaryLight,
+    shadowColor: colors.secondaryDark,
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    elevation: 6,
+  },
+  celebrationBadgeImage: {
+    width: 164,
+    height: 164,
+  },
+  celebrationCheck: {
+    position: "absolute",
+    right: 1,
+    bottom: 1,
+    width: 38,
+    height: 38,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 19,
+    backgroundColor: colors.secondaryDark,
+    borderWidth: 3,
+    borderColor: colors.paper,
+  },
+  celebrationKicker: {
+    marginTop: spacing.lg,
+    color: colors.secondaryDark,
+    fontSize: 11,
+    fontWeight: "900",
+    letterSpacing: 1.2,
+    textTransform: "uppercase",
+  },
+  celebrationTitle: {
+    marginTop: 6,
+    color: colors.ink,
+    fontFamily: "Georgia",
+    fontSize: 25,
+    fontWeight: "800",
+    lineHeight: 31,
+    textAlign: "center",
+  },
+  celebrationPoints: {
+    marginTop: 7,
+    color: colors.secondaryDark,
+    fontSize: 14,
+    fontWeight: "900",
+  },
+  celebrationHint: {
+    maxWidth: 280,
+    marginTop: spacing.sm,
+    color: colors.muted,
+    fontSize: 12,
+    lineHeight: 18,
+    textAlign: "center",
+  },
+  celebrationButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    width: "100%",
+    minHeight: 47,
+    marginTop: spacing.lg,
+    borderRadius: 13,
+    backgroundColor: colors.primary,
+  },
+  celebrationButtonText: {
     color: colors.white,
     fontSize: 13,
     fontWeight: "900",

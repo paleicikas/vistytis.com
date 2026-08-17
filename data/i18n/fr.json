@@ -1,0 +1,85 @@
+{
+  "app.title": "Vištytis",
+  "app.tagline": "Collectionne les badges de la région",
+
+  "common.loading": "Chargement…",
+  "common.close": "Fermer",
+  "common.search": "Rechercher un lieu, un village ou un thème…",
+  "common.retry": "Réessayer",
+  "common.error": "Impossible de charger les données.",
+
+  "nav.places": "Lieux",
+  "nav.collection": "Collection",
+  "nav.language": "Langue",
+  "nav.locate": "Ma position",
+  "places.visible": "Lieux affichés : {count}",
+  "places.map": "Carte",
+  "places.list": "Liste",
+  "places.refreshDistances": "Mettre à jour les distances",
+
+  "filters.all": "Tous",
+  "filters.services": "Services",
+
+  "category.heritage": "Patrimoine culturel",
+  "category.nature": "Nature",
+  "category.viewpoints": "Points de vue",
+  "category.trails": "Sentiers",
+  "category.accommodation": "Hébergement et détente",
+  "category.services": "Services aux visiteurs",
+
+  "rarity.common": "Badge courant",
+  "rarity.rare": "Badge rare",
+  "rarity.epic": "Badge exceptionnel",
+
+  "place.collect": "Obtenir le badge",
+  "place.collected": "Badge déjà obtenu",
+  "place.tooFar": "Trop loin : {distance}",
+  "place.navigate": "Itinéraire",
+  "place.open": "Plus d’informations",
+  "place.share": "Partager",
+  "place.linkCopied": "Lien copié",
+  "place.address": "Adresse",
+  "place.location": "Localité",
+  "place.topics": "Thèmes",
+  "place.coordinates": "Coordonnées",
+  "place.points": "{points} pts",
+  "place.service": "Lieu de service — pas de badge ici",
+  "place.locked": "Pas encore obtenu",
+  "place.lockedHint": "Approche-toi à moins de {radius} m pour obtenir le badge.",
+  "place.distanceAway": "à {distance}",
+
+  "collect.success": "Badge obtenu : {name}",
+  "collect.badgeUnlocked": "Badge débloqué !",
+  "collect.celebrationHint": "Il a été ajouté à ta collection.",
+  "collect.continue": "Continuer",
+  "collect.shareBadge": "J’ai obtenu le badge « {name} » à Vištytis !",
+  "collect.setCompleted": "Série complétée : {name}",
+  "collect.lowAccuracy": "La précision de la position est trop faible ({accuracy} m). Patiente quelques secondes.",
+  "collect.needLocation": "Active la localisation pour collectionner les badges.",
+  "collect.locationDenied": "Accès à la position refusé. La carte fonctionne, mais tu ne pourras pas obtenir de badges.",
+
+  "promo.label": "Lieu sponsorisé",
+  "promo.book": "Réserver",
+  "promo.more": "En savoir plus",
+
+  "progress.title": "Collection",
+  "progress.of": "{collected} sur {total}",
+  "progress.level": "Niveau {level}",
+  "progress.xp": "{xp} pts",
+  "progress.sets": "Séries",
+  "progress.empty": "Aucun badge pour l’instant. Commence par le lieu le plus proche sur la carte.",
+  "progress.setProgress": "{collected}/{total}",
+
+  "sets.hillforts": "Explorateur de collines fortifiées",
+  "sets.boulders": "Chasseur de blocs erratiques",
+  "sets.silelis-trail": "Sentier de Šilelis",
+  "sets.town": "Bourg de Vištytis",
+  "sets.viewpoints": "Points de vue",
+
+  "privacy.note": "Ta position est traitée uniquement sur cet appareil et n’est envoyée nulle part.",
+  "privacy.link": "Confidentialité",
+
+  "empty.noResults": "Aucun lieu ne correspond aux filtres sélectionnés.",
+
+  "map.attribution": "Fond de carte : OpenStreetMap et CARTO"
+}
