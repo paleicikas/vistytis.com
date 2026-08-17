@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import * as Linking from "expo-linking";
 import {
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -12,10 +13,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useApp } from "../AppState";
 import { getPlace } from "../data";
 import { localizePlace, translate } from "../i18n";
-import { LanguagePicker } from "../components/LanguagePicker";
 import { BrandMark } from "../components/BrandMark";
+import { LanguagePicker } from "../components/LanguagePicker";
+import { PlaceMap } from "../components/PlaceMap";
 import type { AppNavigationProp } from "../navigation/types";
 import { categoryColors, colors, spacing } from "../theme";
+import visitorCentrePhoto from "../../assets/branding/vistycio-lankytoju-centras.jpg";
 
 const VISITOR_CENTRE_ID = "vistycio-regioninio-parko-lankytoju-centras";
 
@@ -46,6 +49,12 @@ export default function InfoScreen() {
     .replace(/^https?:\/\//, "")
     .replace(/\/$/, "");
   const openingHours = place.openingHours;
+  const placeMapRegion = {
+    latitude: place.coordinates[1],
+    longitude: place.coordinates[0],
+    latitudeDelta: 0.018,
+    longitudeDelta: 0.024,
+  };
 
   function openExternal(url: string) {
     void Linking.openURL(url).catch(() => undefined);
@@ -78,6 +87,21 @@ export default function InfoScreen() {
           </View>
           <Text style={styles.heroTitle}>{content.name}</Text>
           <Text style={styles.heroDescription}>{content.description}</Text>
+        </View>
+
+        <View style={styles.photoCard}>
+          <Image
+            accessibilityLabel={content.name}
+            resizeMode="cover"
+            source={visitorCentrePhoto}
+            style={styles.photo}
+          />
+          <View style={styles.photoCaption}>
+            <Text style={styles.photoCaptionKicker}>
+              {translate(locale, "info.visitorCentre")}
+            </Text>
+            <Text style={styles.photoCaptionTitle}>{content.name}</Text>
+          </View>
         </View>
 
         <InfoSectionTitle icon="sparkles-outline" title={translate(locale, "info.about")} />
@@ -133,31 +157,42 @@ export default function InfoScreen() {
         </View>
 
         <InfoSectionTitle icon="location-outline" title={translate(locale, "info.location")} />
-        <View style={styles.card}>
-          <View style={styles.locationHeader}>
-            <View
-              style={[
-                styles.locationIcon,
-                { backgroundColor: categoryColors[category] ?? colors.primary },
-              ]}
-            >
-              <Ionicons color={colors.white} name="location" size={21} />
-            </View>
-            <View style={styles.locationCopy}>
-              <Text style={styles.locationTitle}>{content.name}</Text>
-              <Text style={styles.locationValue}>{location}</Text>
-            </View>
+        <View style={styles.locationCard}>
+          <View style={styles.mapPreview}>
+            <PlaceMap
+              initialRegion={placeMapRegion}
+              locale={locale}
+              onPlacePress={() => navigation.navigate("PlaceDetails", { id: place.id })}
+              userLocation={null}
+              visiblePlaces={[place]}
+            />
           </View>
-          <Pressable
-            accessibilityRole="button"
-            onPress={() => navigation.navigate("PlaceDetails", { id: place.id })}
-            style={({ pressed }) => [styles.primaryAction, pressed && styles.pressed]}
-          >
-            <Ionicons color={colors.white} name="map-outline" size={18} />
-            <Text style={styles.primaryActionText}>
-              {translate(locale, "info.viewPlace")}
-            </Text>
-          </Pressable>
+          <View style={styles.locationContent}>
+            <View style={styles.locationHeader}>
+              <View
+                style={[
+                  styles.locationIcon,
+                  { backgroundColor: categoryColors[category] ?? colors.primary },
+                ]}
+              >
+                <Ionicons color={colors.white} name="location" size={21} />
+              </View>
+              <View style={styles.locationCopy}>
+                <Text style={styles.locationTitle}>{content.name}</Text>
+                <Text style={styles.locationValue}>{location}</Text>
+              </View>
+            </View>
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => navigation.navigate("PlaceDetails", { id: place.id })}
+              style={({ pressed }) => [styles.primaryAction, pressed && styles.pressed]}
+            >
+              <Ionicons color={colors.white} name="map-outline" size={18} />
+              <Text style={styles.primaryActionText}>
+                {translate(locale, "info.viewPlace")}
+              </Text>
+            </Pressable>
+          </View>
         </View>
 
         {website ? (
@@ -262,6 +297,9 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "space-between",
     gap: spacing.sm,
+    position: "relative",
+    zIndex: 20,
+    elevation: 20,
     paddingTop: spacing.sm,
     paddingBottom: spacing.md,
   },
@@ -299,6 +337,35 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     borderRadius: 24,
     backgroundColor: colors.primary,
+    zIndex: 1,
+  },
+  photoCard: {
+    marginTop: spacing.md,
+    overflow: "hidden",
+    borderRadius: 18,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.line,
+  },
+  photo: {
+    width: "100%",
+    aspectRatio: 1.985,
+  },
+  photoCaption: {
+    padding: spacing.md,
+  },
+  photoCaptionKicker: {
+    color: colors.primary,
+    fontSize: 10,
+    fontWeight: "900",
+    letterSpacing: 0.8,
+    textTransform: "uppercase",
+  },
+  photoCaptionTitle: {
+    marginTop: 3,
+    color: colors.ink,
+    fontSize: 14,
+    fontWeight: "900",
   },
   heroTop: {
     flexDirection: "row",
@@ -442,6 +509,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: spacing.sm,
+  },
+  locationCard: {
+    overflow: "hidden",
+    borderRadius: 17,
+    backgroundColor: colors.white,
+    borderWidth: 1,
+    borderColor: colors.line,
+  },
+  mapPreview: {
+    height: 220,
+    backgroundColor: colors.map,
+  },
+  locationContent: {
+    padding: spacing.md,
   },
   locationIcon: {
     width: 43,
