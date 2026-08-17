@@ -93,7 +93,7 @@ export default function InfoScreen() {
           <View style={styles.photoFrame}>
             <Image
               accessibilityLabel={content.name}
-              resizeMode="contain"
+              resizeMode="stretch"
               source={visitorCentrePhoto}
               style={styles.photo}
             />
