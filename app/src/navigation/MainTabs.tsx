@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useApp } from "../AppState";
 import CollectionScreen from "../screens/CollectionScreen";
+import InfoScreen from "../screens/InfoScreen";
 import PlacesScreen from "../screens/PlacesScreen";
 import { translate } from "../i18n";
 import { colors } from "../theme";
@@ -47,6 +48,10 @@ export default function MainTabs() {
                 ? focused
                   ? "ribbon"
                   : "ribbon-outline"
+                : route.name === "Info"
+                  ? focused
+                    ? "information-circle"
+                    : "information-circle-outline"
                 : focused
                   ? "map"
                   : "map-outline"
@@ -65,6 +70,11 @@ export default function MainTabs() {
         name="Collection"
         component={CollectionScreen}
         options={{ title: translate(locale, "nav.collection") }}
+      />
+      <Tab.Screen
+        name="Info"
+        component={InfoScreen}
+        options={{ title: translate(locale, "nav.info") }}
       />
     </Tab.Navigator>
   );

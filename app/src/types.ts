@@ -16,6 +16,18 @@ export type LocalizedPlaceText = {
   notice?: string;
 };
 
+export type PlaceContact = {
+  email: string;
+  phone: string;
+  website: string;
+};
+
+export type PlaceOpeningHours = {
+  saturday: string;
+  sundayMondayClosed: boolean;
+  tuesdayFriday: string;
+};
+
 export type Place = {
   id: string;
   collectible: boolean;
@@ -29,6 +41,8 @@ export type Place = {
   city: string | null;
   municipality: string | null;
   coordinates: [number, number];
+  contact?: PlaceContact;
+  openingHours?: PlaceOpeningHours;
   i18n?: Partial<Record<Exclude<Locale, "lt">, LocalizedPlaceText>>;
 };
 

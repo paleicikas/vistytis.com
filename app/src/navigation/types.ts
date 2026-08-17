@@ -10,6 +10,7 @@ export type RootStackParamList = {
 export type MainTabParamList = {
   Places: undefined;
   Collection: undefined;
+  Info: undefined;
 };
 
 export type AppNavigationProp = CompositeNavigationProp<

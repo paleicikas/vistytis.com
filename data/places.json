@@ -2050,6 +2050,16 @@
       22.710343551,
       54.45505367
     ],
+    "contact": {
+      "email": "vistycio.rp.lc@saugoma.lt",
+      "phone": "+370 342 63532",
+      "website": "https://vistytis.lt/kontaktai/"
+    },
+    "openingHours": {
+      "tuesdayFriday": "8:00 – 17:00",
+      "saturday": "10:00 – 15:00",
+      "sundayMondayClosed": true
+    },
     "i18n": {
       "en": {
         "name": "Vištytis Regional Park Visitor Centre",

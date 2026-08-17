@@ -10,6 +10,7 @@ export const linking: LinkingOptions<RootStackParamList> = {
         screens: {
           Places: "",
           Collection: "collection",
+          Info: "info",
         },
       },
       PlaceDetails: "place/:id",
