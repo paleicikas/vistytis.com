@@ -363,7 +363,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.paperSoft,
   },
   photo: {
-    ...StyleSheet.absoluteFillObject,
+    alignSelf: "stretch",
+    width: "100%",
+    height: "100%",
   },
   photoCaption: {
     padding: spacing.md,
