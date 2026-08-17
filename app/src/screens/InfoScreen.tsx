@@ -364,8 +364,8 @@ const styles = StyleSheet.create({
   },
   photo: {
     alignSelf: "stretch",
+    flex: 1,
     width: "100%",
-    height: "100%",
   },
   photoCaption: {
     padding: spacing.md,
