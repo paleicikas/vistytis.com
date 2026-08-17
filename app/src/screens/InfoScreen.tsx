@@ -90,12 +90,14 @@ export default function InfoScreen() {
         </View>
 
         <View style={styles.photoCard}>
-          <Image
-            accessibilityLabel={content.name}
-            resizeMode="cover"
-            source={visitorCentrePhoto}
-            style={styles.photo}
-          />
+          <View style={styles.photoFrame}>
+            <Image
+              accessibilityLabel={content.name}
+              resizeMode="contain"
+              source={visitorCentrePhoto}
+              style={styles.photo}
+            />
+          </View>
           <View style={styles.photoCaption}>
             <Text style={styles.photoCaptionKicker}>
               {translate(locale, "info.visitorCentre")}
@@ -351,13 +353,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.line,
   },
-  photo: {
+  photoFrame: {
     alignSelf: "stretch",
     width: "100%",
     maxWidth: "100%",
     minWidth: 0,
-    flexShrink: 1,
     aspectRatio: 1.987,
+    overflow: "hidden",
+    backgroundColor: colors.paperSoft,
+  },
+  photo: {
+    ...StyleSheet.absoluteFillObject,
   },
   photoCaption: {
     padding: spacing.md,
